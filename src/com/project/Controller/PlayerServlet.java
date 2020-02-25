@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.project.Boundary.PlayerDAO;
+import com.project.Entity.Player;
 
 /**
  * Servlet implementation class PlayerServlet
@@ -50,18 +51,23 @@ public class PlayerServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//doGet(request, response);
+		PlayerDAO bdao = new PlayerDAO();
 		
-		PlayerDAO playerDAO = new PlayerDAO();
-		
-		//Handle chhanges to the data
-		switch(request.getParameter("action")) {
-		
-		case "Add":
+		//See what the form action was
+		switch (request.getParameter("action"))	{
+		case "create":
 			
-			break;
-		case "Update":
+			//Intantiate a new object
+			Player nb = new Player();
 			
+			//Populate the new object from the request paraemeters $_POST["keyname"];
+			//nb.set_first(request.getParameter("fullName"));
+			//nb.set_email(request.getParameter("email"));
+			//nb.set_address(request.getParameter("address"));
+			//nb.set_userName(request.getParameter("userName"));
+			
+			//Add the new Buyer
+			//bdao.insertBuyer(nb);
 			break;
 		}
 	}
