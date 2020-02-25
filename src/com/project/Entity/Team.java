@@ -11,7 +11,7 @@ public class Team {
 	private String _teamStadium;
 	private String _teamSeason;
 	
-	public Team(String _APIkey, int _teamID, String _teamCity, String _teamFullName, String _teamConference,
+	public Team(String _APIkey, String _teamCity, String _teamFullName, String _teamConference,
 			String _teamDivision, String _teamCoach, String _teamStadium, String _teamSeason) {
 		super();
 		this._APIkey = _APIkey;

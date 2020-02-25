@@ -10,10 +10,10 @@ public class Stadium {
 	private String _stadiumPlayingSurface;
 	private String _stadiumType;
 	
-	public Stadium(int _stadiumId, String _stadiumName, String _stadiumCity, String _stadiumState,
+	public Stadium(String _stadiumName, String _stadiumCity, String _stadiumState,
 			String _stadiumCountry, int _stadiumCapacity, String _stadiumPlayingSurface, String _stadiumType) {
 		super();
-		this._stadiumId = _stadiumId;
+		
 		this._stadiumName = _stadiumName;
 		this._stadiumCity = _stadiumCity;
 		this._stadiumState = _stadiumState;
