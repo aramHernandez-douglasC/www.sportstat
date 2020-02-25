@@ -38,11 +38,16 @@
 	<%
 		for (Player b: allPlayers){
 			out.print("<tr>");
-			out.print("<td>"+ b.get_id( +"</td>");
-			out.print("<td>"+ b.get_fullName() +"</td>");
-			out.print("<td>"+ b.get_email() +"</td>");
-			out.print("<td>"+ b.get_userName() +"</td>");
-			out.print("<td>"+ b.get_address() +"</td>");
+			out.print("<td>"+ b.get_playerId() +"</td>");
+			out.print("<td>"+ b.get_playerFirstName() +"</td>");
+			out.print("<td>"+ b.get_playerLastName() +"</td>");
+			out.print("<td>"+ b.get_playerPosition() +"</td>");
+			out.print("<td>"+ b.get_playerHeight() +"</td>");
+			out.print("<td>"+ b.get_playerWeight() +"</td>");
+			out.print("<td>"+ b.get_playerDob() +"</td>");
+			out.print("<td>"+ b.get_playerAge() +"</td>");
+			out.print("<td>"+ b.get_teamName() +"</td>");
+			out.print("<td>"+ b.get_playerNumber() +"</td>");
 			out.print("</tr>");
 		}
 	

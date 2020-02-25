@@ -42,6 +42,7 @@ public class Player {
 		this._teamName = _teamName;
 		this._playerNumber = _playerNumber;
 	}
+	public Player() {};
 	
 	public int get_playerId() {
 		return _playerId;
