@@ -1,47 +1,11 @@
 package com.project.Boundary;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import com.project.Entity.Player;
 
-public class PlayerDAO {
-
-	private String dsn = "jdbc:mysql://localhost/buyers? useLegacyDatetimeCode=false&serverTimezone=UTC";
-	private String username = "root";
-	private String password = "";
-
-	private Connection connect = null;
-	private ResultSet resultSet = null;
-	private Statement statement = null;
-	private PreparedStatement prepStatement = null;
-
-	public void connectDB() throws SQLException {
-
-		this.connect = DriverManager.getConnection(this.dsn, this.username, this.password);
-
-		if (this.connect.isClosed()) {
-
-			System.out.println("Database connection was not established");
-		} else {
-			System.out.println("Database Connection established");
-		}
-	}
-
-	public void disconnectDB() throws SQLException {
-
-		this.connect.close();
-		if (this.connect.isClosed()) {
-			System.out.println("Database connection closed.");
-		} else {
-			System.out.println("Database connection is still open!");
-		}
-	}
+public class PlayerDAO extends DatabaseHelper {
 
 	public void addPlayer(Player newPlayer) {
 		// Add a new player

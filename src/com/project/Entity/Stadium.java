@@ -22,6 +22,19 @@ public class Stadium {
 		this._stadiumPlayingSurface = _stadiumPlayingSurface;
 		this._stadiumType = _stadiumType;
 	}
+	public Stadium(int staId, String _stadiumName, String _stadiumCity, String _stadiumState,
+			String _stadiumCountry, int _stadiumCapacity, String _stadiumPlayingSurface, String _stadiumType) {
+		super();
+		
+		this._stadiumId = staId;
+		this._stadiumName = _stadiumName;
+		this._stadiumCity = _stadiumCity;
+		this._stadiumState = _stadiumState;
+		this._stadiumCountry = _stadiumCountry;
+		this._stadiumCapacity = _stadiumCapacity;
+		this._stadiumPlayingSurface = _stadiumPlayingSurface;
+		this._stadiumType = _stadiumType;
+	}
 
 	public int get_stadiumId() {
 		return _stadiumId;

@@ -15,6 +15,20 @@ public class Team {
 			String _teamDivision, String _teamCoach, String _teamStadium, String _teamSeason) {
 		super();
 		this._APIkey = _APIkey;
+		
+		this._teamCity = _teamCity;
+		this._teamFullName = _teamFullName;
+		this._teamConference = _teamConference;
+		this._teamDivision = _teamDivision;
+		this._teamCoach = _teamCoach;
+		this._teamStadium = _teamStadium;
+		this._teamSeason = _teamSeason;
+	}
+	
+	public Team(String _APIkey,int _teamID, String _teamCity, String _teamFullName, String _teamConference,
+			String _teamDivision, String _teamCoach, String _teamStadium, String _teamSeason) {
+		super();
+		this._APIkey = _APIkey;
 		this._teamID = _teamID;
 		this._teamCity = _teamCity;
 		this._teamFullName = _teamFullName;
@@ -24,6 +38,7 @@ public class Team {
 		this._teamStadium = _teamStadium;
 		this._teamSeason = _teamSeason;
 	}
+	
 	
 	public String get_APIkey() {
 		return _APIkey;

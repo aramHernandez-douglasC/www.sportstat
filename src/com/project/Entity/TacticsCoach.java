@@ -16,6 +16,16 @@ public class TacticsCoach {
 		this._deffensiveCoordinator = _deffensiveCoordinator;
 		this._specialTeamsCoach = _specialTeamsCoach;
 	}
+	
+	public TacticsCoach( String _headCoach, String _offensiveCoordinator,
+			String _deffensiveCoordinator, String _specialTeamsCoach) {
+		super();
+		
+		this._headCoach = _headCoach;
+		this._offensiveCoordinator = _offensiveCoordinator;
+		this._deffensiveCoordinator = _deffensiveCoordinator;
+		this._specialTeamsCoach = _specialTeamsCoach;
+	}
 
 	public int get_tacticsCoachId() {
 		return _tacticsCoachId;

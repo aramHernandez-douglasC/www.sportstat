@@ -27,6 +27,21 @@ public class Player {
 		this._teamName = _teamName;
 		this._playerNumber = _playerNumber;
 	}
+	public Player(String _playerFirstName, String _playerLastName, String _playerPosition,
+			String _playerHeight, String _playerWeight, String _playerDob, int _playerAge, String _teamName,
+			int _playerNumber) {
+		super();
+		
+		this._playerFirstName = _playerFirstName;
+		this._playerLastName = _playerLastName;
+		this._playerPosition = _playerPosition;
+		this._playerHeight = _playerHeight;
+		this._playerWeight = _playerWeight;
+		this._playerDob = _playerDob;
+		this._playerAge = _playerAge;
+		this._teamName = _teamName;
+		this._playerNumber = _playerNumber;
+	}
 	
 	public int get_playerId() {
 		return _playerId;
