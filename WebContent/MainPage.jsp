@@ -50,7 +50,7 @@
 
     </div>
     
-	<h3>General Team Stats</h3>
+	<h3>Current Teams</h3>
 	<table>
 	<tr>
 		<thead>
