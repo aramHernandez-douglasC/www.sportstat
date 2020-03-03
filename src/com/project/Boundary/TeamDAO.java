@@ -111,22 +111,22 @@ public class TeamDAO extends DatabaseHelper{
 		ArrayList<Team> allTeams = new ArrayList <Team>();
 		
 		//Select all Teams
-		String sql = "SELECT * FROM Teams";
+		String sql = "SELECT * FROM Team";
 		
 		try {
 			connectDB();
 			
 			this.statement = this.connect.createStatement();
-			this.resultSet = this.prepStatement.executeQuery(sql);
+			this.resultSet = this.statement.executeQuery(sql);
 			
 			while(resultSet.next()) {
 				Team team = new Team(resultSet.getString("_APIkey"),
 						resultSet.getString("_teamCity"),
 						resultSet.getString("_teamFullName"),
 						 resultSet.getString("_teamConference"),
-						 resultSet.getString(" _teamDivision"),
-						 resultSet.getString(" _teamCoach"),
-						 resultSet.getString(" _teamStadium"), 
+						 resultSet.getString("_teamDivision"),
+						 resultSet.getString("_headCoach"),
+						 resultSet.getString("_stadiumName"), 
 						 resultSet.getString("_teamSeason"));
 			
 				allTeams.add(team);
