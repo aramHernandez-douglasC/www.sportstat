@@ -8,7 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.project.Boundary.PlayerDAO;
+import com.project.Boundary.TeamDAO;
 import com.project.Entity.Player;
+import com.project.Entity.Team;
 
 /**
  * Servlet implementation class PlayerServlet
@@ -51,23 +53,25 @@ public class PlayerServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		PlayerDAO bdao = new PlayerDAO();
+		TeamDAO bdao = new TeamDAO();
 		
 		//See what the form action was
 		switch (request.getParameter("action"))	{
-		case "create":
+		case "add":
 			
 			//Intantiate a new object
-			Player nb = new Player();
+			Team nb = new Team();
 			
 			//Populate the new object from the request paraemeters $_POST["keyname"];
-			//nb.set_first(request.getParameter("fullName"));
-			//nb.set_email(request.getParameter("email"));
-			//nb.set_address(request.getParameter("address"));
-			//nb.set_userName(request.getParameter("userName"));
+			nb.set_teamFullName(request.getParameter("teamFullName"));
+			nb.set_teamCity(request.getParameter("teamCity"));
+			nb.set_teamDivision(request.getParameter("teamdivision"));
+			nb.set_teamSeason(request.getParameter("teamSeason"));
 			
 			//Add the new Buyer
-			//bdao.insertBuyer(nb);
+			bdao.addInfo(nb);
+			
+			response.sendRedirect("MainPage.jsp");
 			break;
 		}
 	}

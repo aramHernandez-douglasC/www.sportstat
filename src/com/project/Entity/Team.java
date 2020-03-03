@@ -39,6 +39,7 @@ public class Team {
 		this._teamSeason = _teamSeason;
 	}
 	
+	public Team() {}
 	
 	public String get_APIkey() {
 		return _APIkey;

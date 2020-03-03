@@ -80,6 +80,24 @@
 	%>
 	
 </table>
+<br>
+<form action = "PlayerServlet" method = "POST">
+				Add a team
+				insert full name:
+                 <input type="text" name="teamFullName">
+                 <br>
+                 insert team city:
+                  <input type="text" name="teamCity">
+                  <br>
+                  insert division:
+                   <input type="text" name="teamdivision">
+                   <br>
+                   insert season:
+                    <input type="text" name="teamSeason">
+                    <br>
+                 <input type="hidden" name="action" value="add">
+                 <input type="submit" value="ADD">
+             </form>
 <h3>Schedule</h3>
 	<!-- Missing handler -->
 </body>
