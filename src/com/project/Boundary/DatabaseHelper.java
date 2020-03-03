@@ -19,13 +19,26 @@ public class DatabaseHelper {
 
 	public void connectDB() throws SQLException {
 
-		this.connect = DriverManager.getConnection(this.dsn, this.username, this.password);
-
-		if (this.connect.isClosed()) {
-
-			System.out.println("Database connection was not established");
-		} else {
-			System.out.println("Database Connection established");
+		try {
+			
+			try {
+				Class.forName("com.mysql.jdbc.Driver");
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			this.connect = DriverManager.getConnection(this.dsn, this.username, this.password);
+				if 	(this.conn.isClosed())	{
+					System.out.println("Database connection not established.");
+				} else {
+					System.out.println("Database connection establshed.");
+				}
+		} catch (SQLException sx) {
+			System.out.println("Error Connecting to the the database.");
+			System.out.println(sx.getMessage());
+			System.out.println(sx.getErrorCode());
+			System.out.println(sx.getSQLState());
 		}
 	}
 
