@@ -13,7 +13,7 @@ CREATE TABLE Stadium(
 	_stadiumCity VARCHAR(50),
 	_stadiumState VARCHAR(50),
 	_stadiumCountry VARCHAR(50),
-	_stadiumCapacity int(MAX),
+	_stadiumCapacity int(250),
 	_stadiumPlayingSurface VARCHAR(50),
 	_stadiumType VARCHAR(50),
     PRIMARY KEY (_stadiumId)
@@ -27,7 +27,7 @@ CREATE TABLE TacticsCoach(
     PRIMARY KEY (_tacticsCoachId)
 );
 CREATE TABLE TEAM(
-    _APIkey VARCHAR(MAX),
+    _APIkey VARCHAR(50),
 	_teamID INT NOT NULL AUTO_INCREMENT,
 	_teamCity VARCHAR(50),
 	_teamFullName VARCHAR(50),
@@ -36,9 +36,8 @@ CREATE TABLE TEAM(
 	_headCoach VARCHAR(50),
 	_stadiumName VARCHAR(50),
 	_teamSeason VARCHAR(50),
-    PRIMARY KEY (_teamID),
-    FOREIGN KEY (_stadiumName) REFERENCES Stadium (_stadiumName),
-    FOREIGN KEY (_headCoach) REFERENCES TacticsCoach (_headCoach)
+    PRIMARY KEY (_teamID)
+    
 );
 CREATE TABLE Player(
     _playerId INT NOT NULL AUTO_INCREMENT,
@@ -51,8 +50,8 @@ CREATE TABLE Player(
 	_playerAge INT(3),
 	_teamName VARCHAR(50),
 	_playerNumber INT(2),
-    PRIMARY KEY (_playerId),
-    FOREIGN KEY (_teamName) REFERENCES Team (_teamName)
+    PRIMARY KEY (_playerId)
+    
 );
 
 insert into Login (_loginUser, _loginPassword) values ('tscolts0', 'kNnJFjwEP3O');

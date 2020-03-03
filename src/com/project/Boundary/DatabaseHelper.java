@@ -29,7 +29,7 @@ public class DatabaseHelper {
 			}
 			
 			this.connect = DriverManager.getConnection(this.dsn, this.username, this.password);
-				if 	(this.conn.isClosed())	{
+				if 	(this.connect.isClosed())	{
 					System.out.println("Database connection not established.");
 				} else {
 					System.out.println("Database connection establshed.");

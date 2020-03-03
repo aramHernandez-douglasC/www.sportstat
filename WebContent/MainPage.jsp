@@ -4,20 +4,20 @@
 <%@ page import = "com.project.Entity.*" %>
 <%@ page import = "com.project.Boundary.*" %>
  <%
- 	ArrayList<Player> allPlayers = new ArrayList<Player>();
+ 	/* ArrayList<Player> allPlayers = new ArrayList<Player>(); */
  	ArrayList<Team> allTeams = new ArrayList<Team>();
- 	ArrayList<Stadium> allStadiums = new ArrayList<Stadium>();
- 	ArrayList<TacticsCoach> allCoach = new ArrayList<TacticsCoach>();
+ 	/* ArrayList<Stadium> allStadiums = new ArrayList<Stadium>();
+ 	ArrayList<TacticsCoach> allCoach = new ArrayList<TacticsCoach>(); */
  	
-	PlayerDAO bdao = new PlayerDAO();
-	CoachDAO cdao = new CoachDAO();
-	StadiumDAO sdao = new StadiumDAO();
+	/* PlayerDAO bdao = new PlayerDAO();*/
+	/* CoachDAO cdao = new CoachDAO();
+	StadiumDAO sdao = new StadiumDAO(); */
 	TeamDAO tdao = new TeamDAO();
 	
-	allPlayers = bdao.displayPlayer();
+	/* allPlayers = bdao.displayPlayer(); */
 	allTeams = tdao.displayTeam();
-	allStadiums = sdao.displayStadium();
-	allCoach = cdao.displayStadium();
+	/* allStadiums = sdao.displayStadium();
+	allCoach = cdao.displayStadium(); */
 	
 	
 	
@@ -33,7 +33,7 @@
          <ul id="opt-menu-head-left">
              <li> <a> Menu </a></li>
              <li><a>Search Teams</a></li>
-             <form action = "SearchController" method = "GET">
+             <form action = "" method = "">
                  <input type="text" name="team">
                  <input type="hidden" name="action" value="search">
                  <input type="submit" value="Search">
