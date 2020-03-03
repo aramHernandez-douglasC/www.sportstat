@@ -123,7 +123,7 @@ public class CoachDAO extends DatabaseHelper {
 			connectDB();
 			
 			this.statement = this.connect.createStatement();
-			this.resultSet = this.prepStatement.executeQuery(sql);
+			this.resultSet = this.statement.executeQuery(sql);
 			
 			while(resultSet.next()) {
 			

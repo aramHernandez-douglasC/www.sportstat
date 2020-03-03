@@ -122,7 +122,7 @@ public class PlayerDAO extends DatabaseHelper {
 			connectDB();
 			
 			this.statement = this.connect.createStatement();
-			this.resultSet = this.prepStatement.executeQuery(sql);
+			this.resultSet = this.statement.executeQuery(sql);
 			
 			while(resultSet.next()) {
 				Player player = new Player(resultSet.getInt("_playerId"), resultSet.getString("_playerFirstName"), resultSet.getString("_playerLastName"),
