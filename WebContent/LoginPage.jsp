@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <!-- Used an HTML Template/Boilerplate code to generate the formatting present in this page. -->
 <!-- Boilerplate Code Taken from http://getskeleton.com/ -->
   <!-- Basic Page Needs
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->  
   <meta charset="ISO-8859-1">
-  <title>Update Player</title>
+  <title>Login Page</title>
   <meta name="description" content="">
   <meta name="author" content="">
 
@@ -24,8 +24,22 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
+  
 </head>
 <body>
-<p>Some text here</p>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container">
+    <div class="row">
+      <div class="one-half column" style="margin-top: 25%">
+        <h4>Basic Page</h4>
+        <p>This index.html page is a placeholder with the CSS, font and favicon. It's just waiting for you to add some content! If you need some help hit up the <a href="http://www.getskeleton.com">Skeleton documentation</a>.</p>
+      </div>
+    </div>
+  </div>
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>
 </html>
