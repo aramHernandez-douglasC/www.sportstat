@@ -39,28 +39,20 @@
     </div>
   </div> -->
   
-  <div class = "container">
+  <div>
   	<a href = "MainPage.jsp">Home</a>
   	<a href = "Register.jsp">Register</a>
   	<a href = "LoginPage.jsp">Log In</a>
   	<a href = "LogoutPage.jsp">Log Out</a>
   </div>
   
-  <table class = "container" align ="center">
-  	<form action = "LoginServlet" method = "post" class = "row">
-  		<tr>
-  			<td>Username</td>
-  			<td><input name = "uname" type = "text"> </td>
-  		</tr>
-  		<tr>
-  			<td>Password</td>
-  			<td><input name = "pword" type = "password"></td>
-  		</tr>
-  		<tr>
-  			<td><input type = "submit" value = "Log in"></td>
-  		</tr>
-  	</form>
-  </table>
+  <%
+  	session.invalidate();
+  	System.out.println("session destroyed");
+  	response.sendRedirect("sample.jsp");
+  %>
+  
+
 
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->

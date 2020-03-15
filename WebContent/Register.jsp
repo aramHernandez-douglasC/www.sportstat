@@ -8,7 +8,7 @@
   <!-- Basic Page Needs
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->  
   <meta charset="ISO-8859-1">
-  <title>Login Page</title>
+  <title>Register Page</title>
   <meta name="description" content="">
   <meta name="author" content="">
 
@@ -45,9 +45,9 @@
   	<a href = "LoginPage.jsp">Log In</a>
   	<a href = "LogoutPage.jsp">Log Out</a>
   </div>
-  
-  <table class = "container" align ="center">
-  	<form action = "LoginServlet" method = "post" class = "row">
+  <br><h1 class = "container">Register</h1>
+  <table class = "container">
+  	<form action = "RegisterServlet" method = "post" class = "container">
   		<tr>
   			<td>Username</td>
   			<td><input name = "uname" type = "text"> </td>
@@ -57,7 +57,7 @@
   			<td><input name = "pword" type = "password"></td>
   		</tr>
   		<tr>
-  			<td><input type = "submit" value = "Log in"></td>
+  			<td><input type = "submit" value = "Register"></td>
   		</tr>
   	</form>
   </table>

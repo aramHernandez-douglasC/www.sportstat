@@ -5,9 +5,7 @@ public class Login {
 	private String _loginUser;
 	private String _loginPassword;
 	
-	public Login(int _loginId, String _loginUser, String _loginPassword) {
-		super();
-		this._loginId = _loginId;
+	public Login(String _loginUser, String _loginPassword) {
 		this._loginUser = _loginUser;
 		this._loginPassword = _loginPassword;
 	}
@@ -29,5 +27,14 @@ public class Login {
 	}
 	public void set_loginPassword(String _loginPassword) {
 		this._loginPassword = _loginPassword;
+	}
+	
+	public boolean checkLoginToken(Login tokenToCheck)
+	{
+		if(tokenToCheck.get_loginPassword().contentEquals(_loginPassword))
+		{
+			return true;
+		}
+		return false;
 	}
 }
