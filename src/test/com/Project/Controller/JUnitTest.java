@@ -18,13 +18,13 @@ class JUnitTest {
 	
 	@BeforeEach
 	void setUp() throws Exception {
-		testUserLogin = new Login("bro","ham");
+		testUserLogin = new Login("bro", "ham");
 		
 	}
 
 	@Test
 	void testToCheckAuthentication() {
-		assertEquals(" Test is a success", testLoginService.checkAuthentication(testUserLogin));
+		assertEquals(true,testUserLogin.checkLoginToken(testUserLogin));
 	}
 
 }
