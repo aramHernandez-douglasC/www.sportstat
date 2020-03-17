@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.project.Boundary.LoginDAO;
 import com.project.Entity.Login;
 import com.project.Entity.User;
 
@@ -19,7 +20,7 @@ import com.project.Entity.User;
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	User loginToken;
-	LoginService loginService;
+	LoginDAO loginDAO = new LoginDAO();
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -46,10 +47,10 @@ public class LoginServlet extends HttpServlet {
 		String userName = request.getParameter("uname");
 		String passWord = request.getParameter("pword");
 		
-		loginToken = new User(userName,passWord);
-		loginService = new LoginService();
 		
-		if(loginService.checkAuthentication(loginToken))
+		
+		
+		if(loginDAO.checkLogin(userName, passWord))
 		{
 			HttpSession session = request.getSession(true);
 			session.setAttribute("user", userName);
