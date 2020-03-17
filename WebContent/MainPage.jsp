@@ -56,15 +56,14 @@
                  <input type="text" name="team">
                  <input type="hidden" name="action" value="search">
                  <input type="submit" value="Search">
-             </form>
-             <li><a>My Account</a></li>             
+             </form>             
          </ul>
          <h1 id="main-tit-head">SportTube</h1>
          <span id="welcome-user"></span>
          <ul id="opt-menu-head-right">
-            <li> <a> Register Now! </a></li>
+            <li> <a href = "Register.jsp"> Register Now! </a></li>
             <li><a href = "LoginPage.jsp">Sign in</a></li>
-            <li><a>My Account</a></li>             
+            <li><a >My Account</a></li>             
         </ul>
 
     </div>

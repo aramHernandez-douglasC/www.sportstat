@@ -47,6 +47,7 @@ public class User {
 		this._loginUser = _loginUser;
 		this._loginPassword = _loginPassword;
 	}
+	public User() {}
 
 
 
