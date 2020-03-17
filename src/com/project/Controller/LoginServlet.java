@@ -57,9 +57,13 @@ public class LoginServlet extends HttpServlet {
 			session.setMaxInactiveInterval(-1);
 			response.sendRedirect("sample.jsp");
 			System.out.println("Login Success");
+			
+			HttpSession ses = request.getSession();
+			ses.setAttribute("userName", userName);
 		}
 		else
 		{
+			 
 			response.sendRedirect("LoginPage.jsp");
 			System.out.println("Login Failed");
 			

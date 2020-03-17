@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%
+	String sessUser = (String)session.getAttribute( "userName");
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,19 +34,15 @@
   	<a href = "MainPage.jsp">Home</a>
   	<a href = "Register.jsp">Register</a>
   	<a href = "LoginPage.jsp">Log In</a>
-  	<a href = "LogoutPage.jsp">Log Out</a>
+  	<a href = "LogoutPage.jsp">Log Out</a> </t>
+  	<a style=>Hello <% out.print(sessUser); %> </a>
   </div>
+  
+  
 
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <div class="container">
-    <div class="row">
-      <div class="one-half column" style="margin-top: 25%">
-        <h4>Basic Page</h4>
-        <p>This index.html page is a placeholder with the CSS, font and favicon. It's just waiting for you to add some content! If you need some help hit up the <a href="http://www.getskeleton.com">Skeleton documentation</a>.</p>
-      </div>
-    </div>
-  </div>
+  
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>

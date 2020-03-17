@@ -28,6 +28,15 @@
 
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+.badcontainer {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box; 
+  background-color:  #cc0000;
+  color: white;}
 .container {
   position: relative;
   width: 100%;
