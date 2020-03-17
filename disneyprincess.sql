@@ -1,10 +1,16 @@
 DROP DATABASE IF EXISTS SportsStatsDB;
 CREATE DATABASE SportsStatsDB;
 USE SportsStatsDB;
-CREATE TABLE Login(
+CREATE TABLE User(
     _loginId int NOT NULL AUTO_INCREMENT,
+    _fullName VARCHAR(50),
+    _dob VARCHAR(50),
+    _city VARCHAR(50),
+    _province VARCHAR(50),
+    _country VARCHAR(50),
     _loginUser VARCHAR(50),
     _loginPassword VARCHAR(50),
+    
     PRIMARY KEY (_loginId) 
 );
 CREATE TABLE Stadium(
@@ -54,11 +60,27 @@ CREATE TABLE Player(
     
 );
 
-insert into Login (_loginUser, _loginPassword) values ('tscolts0', 'kNnJFjwEP3O');
-insert into Login (_loginUser, _loginPassword) values ('dmerrin1', '6ZDsrkU');
-insert into Login (_loginUser, _loginPassword) values ('mmccard2', 'vEC7B8g2e');
-insert into Login (_loginUser, _loginPassword) values ('ralner3', '0rgttSdFkpCf');
-insert into Login (_loginUser, _loginPassword) values ('tdowyer4', 'qA3xS5');
+insert into User (_fullName, _dob, _city, _province, _country, _loginUser, _loginPassword) values ('Tami Jermey', '8/17/1978', 'Stockton', 'California', 'United States', 'tjermey0', 'iWeyVltNp');
+insert into User (_fullName, _dob, _city, _province, _country, _loginUser, _loginPassword) values ('Maud Dellit', '10/28/1987', 'Oceanside', 'California', 'United States', 'mdellit1', 'ORustLsvNG0');
+insert into User (_fullName, _dob, _city, _province, _country, _loginUser, _loginPassword) values ('Maryellen Upcott', '1/23/1996', 'Denver', 'Colorado', 'United States', 'mupcott2', '0Qh6BRq5');
+insert into User (_fullName, _dob, _city, _province, _country, _loginUser, _loginPassword) values ('Jannel Stodart', '9/27/1996', 'Dallas', 'Texas', 'United States', 'jstodart3', 'Zex0ZShLphj');
+insert into User (_fullName, _dob, _city, _province, _country, _loginUser, _loginPassword) values ('Jeniffer De Benedetti', '12/24/1997', 'Clearwater', 'Florida', 'United States', 'jde4', 'yxlcHeOKWQGO');
+insert into User (_fullName, _dob, _city, _province, _country, _loginUser, _loginPassword) values ('Sibyl Lemary', '5/1/1987', 'Arlington', 'Virginia', 'United States', 'slemary5', 'K9pc8dOFCN');
+insert into User (_fullName, _dob, _city, _province, _country, _loginUser, _loginPassword) values ('Vincents Stoffers', '8/22/2002', 'Saint Louis', 'Missouri', 'United States', 'vstoffers6', 'ogz3vRiD7v');
+insert into User (_fullName, _dob, _city, _province, _country, _loginUser, _loginPassword) values ('Whit Singh', '6/15/1987', 'Hampton', 'Virginia', 'United States', 'wsingh7', 'XY6Hvw9N');
+insert into User (_fullName, _dob, _city, _province, _country, _loginUser, _loginPassword) values ('Lorine Morland', '11/16/1991', 'Indianapolis', 'Indiana', 'United States', 'lmorland8', 'F7Gw3Au4');
+insert into User (_fullName, _dob, _city, _province, _country, _loginUser, _loginPassword) values ('Elmira Baude', '11/15/1995', 'Paterson', 'New Jersey', 'United States', 'ebaude9', 'O0yZLpgQT');
+insert into User (_fullName, _dob, _city, _province, _country, _loginUser, _loginPassword) values ('Nevile Alcock', '6/4/1977', 'Kansas City', 'Kansas', 'United States', 'nalcocka', 'OL71uRQm');
+insert into User (_fullName, _dob, _city, _province, _country, _loginUser, _loginPassword) values ('Lurette Vedeneev', '10/22/1977', 'Harrisburg', 'Pennsylvania', 'United States', 'lvedeneevb', 'uYlJPqAFN');
+insert into User (_fullName, _dob, _city, _province, _country, _loginUser, _loginPassword) values ('Xymenes Stones', '10/25/1980', 'El Paso', 'Texas', 'United States', 'xstonesc', '58GgQwXYM8');
+insert into User (_fullName, _dob, _city, _province, _country, _loginUser, _loginPassword) values ('Dorise Niezen', '11/30/1990', 'Ann Arbor', 'Michigan', 'United States', 'dniezend', 'Kr6W9L8');
+insert into User (_fullName, _dob, _city, _province, _country, _loginUser, _loginPassword) values ('Guinevere Stickley', '1/4/1980', 'Shreveport', 'Louisiana', 'United States', 'gstickleye', 't7OmV8i773nZ');
+insert into User (_fullName, _dob, _city, _province, _country, _loginUser, _loginPassword) values ('Dionis Dodamead', '8/3/1986', 'Clearwater', 'Florida', 'United States', 'ddodameadf', '9q7ewyD');
+insert into User (_fullName, _dob, _city, _province, _country, _loginUser, _loginPassword) values ('Essa Tunney', '12/12/1987', 'Sacramento', 'California', 'United States', 'etunneyg', '0eIyT3Ng1s');
+insert into User (_fullName, _dob, _city, _province, _country, _loginUser, _loginPassword) values ('Bunny de Bullion', '9/18/1988', 'San Rafael', 'California', 'United States', 'bdeh', 'Wsab44UB');
+insert into User (_fullName, _dob, _city, _province, _country, _loginUser, _loginPassword) values ('Natalya Jeandot', '3/15/1997', 'Topeka', 'Kansas', 'United States', 'njeandoti', 'p7mH60h4xOQF');
+insert into User (_fullName, _dob, _city, _province, _country, _loginUser, _loginPassword) values ('Cesya Grelak', '4/26/1980', 'Tucson', 'Arizona', 'United States', 'cgrelakj', 'd0fdCI');
+
 
 insert into Stadium (_stadiumName, _stadiumCity, _stadiumCountry, _stadiumCapacity, _stadiumPlayingSurface, _stadiumType) values ('Keebler Group', 'Salamina', 'Colombia', 63415, 'Asteraceae', 'Configurable encompassing time-frame');
 insert into Stadium (_stadiumName, _stadiumCity, _stadiumCountry, _stadiumCapacity, _stadiumPlayingSurface, _stadiumType) values ('Corwin-Murphy', 'Orsha', 'Belarus', 36160, 'Liliaceae', 'Re-contextualized zero defect complexity');

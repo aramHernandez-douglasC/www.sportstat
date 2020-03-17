@@ -63,7 +63,7 @@
          <span id="welcome-user"></span>
          <ul id="opt-menu-head-right">
             <li> <a> Register Now! </a></li>
-            <li><a>Sign up</a></li>
+            <li><a href = "LoginPage.jsp">Sign in</a></li>
             <li><a>My Account</a></li>             
         </ul>
 
