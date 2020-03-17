@@ -1,4 +1,4 @@
-package com.project.Controller;
+package com.project.Entity;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.project.Boundary.UserDAO;
-import com.project.Entity.User;
 
 /**
  * Servlet implementation class ProfileServlet

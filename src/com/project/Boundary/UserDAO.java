@@ -46,7 +46,7 @@ public void addInfo(User p) {
 
 
 
-public void updateName(String userName) {
+public void updateName(String userName, String fullName) {
 
 		
 		// Update Query
@@ -65,7 +65,7 @@ public void updateName(String userName) {
 
 			// Set the parameters
 			
-			this.prepStatement.setString(1, userName);
+			this.prepStatement.setString(1, fullName);
 			this.prepStatement.setString(2, userName);
 			this.prepStatement.execute();
 			
@@ -90,39 +90,47 @@ public void updateName(String userName) {
 	}
 
 
-public void updateDOB(User u, String userName) {
+public void updateDOB(String userName, Date dob) {
+
+
+	// Update Query
+	String sql = "UPDATE User SET " + "_dob= ?" + "WHERE _loginUser = ? ";
+	
+	
+	try {
+
+		connectDB();
+
+		// Create the prepared statements
+		this.prepStatement = this.connect.prepareStatement(sql);
+
+		// Execute the statement
+		this.prepStatement.executeUpdate();
+
+		// Set the parameters
+		
+		this.prepStatement.setString(1, userName);
+		this.prepStatement.setString(2, dob.toString());
+		this.prepStatement.execute();
+		
+		User g = this.getUser(userName);
+		
 
 		
-		// Update Query
-		String sql = "UPDATE User SET " + "_dob= ?" + "WHERE _loginUser = " + userName;
 		
-		try {
+		System.out.println("Updated User: " + g.get_userID());
 
-			connectDB();
+		// Disconnect to the database
+		disconnectDB();
 
-			// Create the prepared statements
-			this.prepStatement = this.connect.prepareStatement(sql);
+	} catch (SQLException m) {
 
-			// Execute the statement
-			this.prepStatement.executeUpdate();
+		System.out.println("Error updating user fullname");
+		System.out.println(m.getMessage());
+		System.out.println(m.getErrorCode());
+		System.out.println(m.getSQLState());
+	}
 
-			// Set the parameters
-			
-			this.prepStatement.setString(1, u.get_dob().toString());
-			
-
-			System.out.println("Updated User: " + u.get_userID());
-
-			// Disconnect to the database
-			disconnectDB();
-
-		} catch (SQLException m) {
-
-			System.out.println("Error updating user birthday");
-			System.out.println(m.getMessage());
-			System.out.println(m.getErrorCode());
-			System.out.println(m.getSQLState());
-		}
 
 	}
 public User getUser(String userName) {
@@ -167,75 +175,90 @@ public User getUser(String userName) {
 	return team;
 }
 
-public void updateUserName(User u, String userName) {
+public void updateUserName( String userName, String userNew) {
 
 	
 	// Update Query
-	String sql = "UPDATE User SET " + "_loginUser= ?" + "WHERE _loginUser = " + userName;
-	
-	try {
-
-		connectDB();
-
-		// Create the prepared statements
-		this.prepStatement = this.connect.prepareStatement(sql);
-
-		// Execute the statement
-		this.prepStatement.executeUpdate();
-
-		// Set the parameters
+		String sql = "UPDATE User SET " + "_loginUser= ?" + "WHERE _loginUser = ? ";
 		
-		this.prepStatement.setString(1, u.get_loginUser());
 		
+		try {
 
-		System.out.println("Updated User: " + u.get_userID());
+			connectDB();
 
-		// Disconnect to the database
-		disconnectDB();
+			// Create the prepared statements
+			this.prepStatement = this.connect.prepareStatement(sql);
 
-	} catch (SQLException m) {
+			// Execute the statement
+			this.prepStatement.executeUpdate();
 
-		System.out.println("Error updating username");
-		System.out.println(m.getMessage());
-		System.out.println(m.getErrorCode());
-		System.out.println(m.getSQLState());
-	}
+			// Set the parameters
+			
+			this.prepStatement.setString(1, userNew);
+			this.prepStatement.setString(2, userName);
+			this.prepStatement.execute();
+			
+			User g = this.getUser(userName);
+			
+
+			
+			
+			System.out.println("Updated User: " + g.get_userID());
+
+			// Disconnect to the database
+			disconnectDB();
+
+		} catch (SQLException m) {
+
+			System.out.println("Error updating user fullname");
+			System.out.println(m.getMessage());
+			System.out.println(m.getErrorCode());
+			System.out.println(m.getSQLState());
+		}
 
 }
 
-public void updatePassword(User u, String userName) {
+public void updatePassword(String username, String password) {
 
 	
+
 	// Update Query
-	String sql = "UPDATE User SET " + "_loginPassword= ?" + "WHERE _loginUser = " + userName;
-	
-	try {
-
-		connectDB();
-
-		// Create the prepared statements
-		this.prepStatement = this.connect.prepareStatement(sql);
-
-		// Execute the statement
-		this.prepStatement.executeUpdate();
-
-		// Set the parameters
+		String sql = "UPDATE User SET " + "_loginPassword= ?" + "WHERE _loginUser = ? ";
 		
-		this.prepStatement.setString(1, u.get_loginPassword());
 		
+		try {
 
-		System.out.println("Updated User: " + u.get_userID());
+			connectDB();
 
-		// Disconnect to the database
-		disconnectDB();
+			// Create the prepared statements
+			this.prepStatement = this.connect.prepareStatement(sql);
 
-	} catch (SQLException m) {
+			// Execute the statement
+			this.prepStatement.executeUpdate();
 
-		System.out.println("Error updating user password");
-		System.out.println(m.getMessage());
-		System.out.println(m.getErrorCode());
-		System.out.println(m.getSQLState());
-	}
+			// Set the parameters
+			
+			this.prepStatement.setString(1, username);
+			this.prepStatement.setString(2, password);
+			this.prepStatement.execute();
+			
+			User g = this.getUser(username);
+			
+
+			
+			
+			System.out.println("Updated User: " + g.get_userID());
+
+			// Disconnect to the database
+			disconnectDB();
+
+		} catch (SQLException m) {
+
+			System.out.println("Error updating user fullname");
+			System.out.println(m.getMessage());
+			System.out.println(m.getErrorCode());
+			System.out.println(m.getSQLState());
+		}
 
 }
 

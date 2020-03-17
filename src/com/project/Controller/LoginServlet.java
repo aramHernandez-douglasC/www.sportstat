@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.project.Boundary.LoginDAO;
+import com.project.Boundary.UserDAO;
 import com.project.Entity.Login;
 import com.project.Entity.User;
 
@@ -52,9 +53,16 @@ public class LoginServlet extends HttpServlet {
 		
 		if(loginDAO.checkLogin(userName, passWord))
 		{
+			//Creates a session for storing the username
 			HttpSession session = request.getSession(true);
+		
 			session.setAttribute("user", userName);
 			session.setMaxInactiveInterval(-1);
+			
+			UserDAO dao, new UserDAO();
+			
+			
+			//Redirect to sample jsp
 			response.sendRedirect("sample.jsp");
 			System.out.println("Login Success");
 			

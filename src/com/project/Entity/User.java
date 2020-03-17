@@ -14,6 +14,7 @@ public class User {
     private String _loginUser; 
     private String _loginPassword;
     
+    //Constructor for displaying 
     public User(int _userID, String _fullName, Date _dob, String _city, String _province, String _country,
 			String _loginUser, String _loginPassword) {
 		super();
@@ -27,6 +28,8 @@ public class User {
 		this._loginPassword = _loginPassword;
 	}
     
+    
+   //Constructor for adding
     public User(String _fullName, Date _dob, String _city, String _province, String _country,
 			String _loginUser, String _loginPassword) {
 		super();
@@ -41,12 +44,14 @@ public class User {
 	}
     
     
-    
+    //login constructor
 	public User(String _loginUser, String _loginPassword) {
 		super();
 		this._loginUser = _loginUser;
 		this._loginPassword = _loginPassword;
 	}
+	
+	//empty constructor
 	public User() {}
 
 
