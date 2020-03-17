@@ -1,8 +1,11 @@
 package com.project.Boundary;
 
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-
+import com.project.Entity.Team;
 import com.project.Entity.User;
 
 public class UserDAO extends DatabaseHelper {
@@ -43,11 +46,12 @@ public void addInfo(User p) {
 
 
 
-public void updateName(User u, String userName) {
+public void updateName(String userName) {
 
 		
 		// Update Query
-		String sql = "UPDATE User SET " + "_fullName= ?" + "WHERE _loginUser = " + userName;
+		String sql = "UPDATE User SET " + "_fullName= ?" + "WHERE _loginUser = ? ";
+		
 		
 		try {
 
@@ -61,10 +65,16 @@ public void updateName(User u, String userName) {
 
 			// Set the parameters
 			
-			this.prepStatement.setString(1, u.get_fullName());
+			this.prepStatement.setString(1, userName);
+			this.prepStatement.setString(2, userName);
+			this.prepStatement.execute();
+			
+			User g = this.getUser(userName);
 			
 
-			System.out.println("Updated User: " + u.get_userID());
+			
+			
+			System.out.println("Updated User: " + g.get_userID());
 
 			// Disconnect to the database
 			disconnectDB();
@@ -115,6 +125,47 @@ public void updateDOB(User u, String userName) {
 		}
 
 	}
+public User getUser(String userName) {
+	
+	User team = null;
+	String sql = "SELECT * FROM User WHERE _loginUser =" + userName +";";
+	try {
+		connectDB();
+		
+
+		this.statement = this.connect.createStatement();
+		this.resultSet = this.statement.executeQuery(sql);
+		
+		Date date1 = new Date();
+		try {
+			date1 = new SimpleDateFormat("yy/mm/dd").parse(resultSet.getString("_dob"));
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}  
+		
+	     team = new User(Integer.parseInt(resultSet.getString("_userID")),
+				resultSet.getString("_fullName"), 
+				date1, 
+				resultSet.getString("_city"),
+				resultSet.getString("_province"),
+				resultSet.getString("_country"),
+				resultSet.getString("_loginUser"),
+				resultSet.getString("_loginPassword"));
+
+		
+		disconnectDB();
+
+	}
+	catch(SQLException m) {
+		
+		System.out.println(m.getMessage());
+		System.out.println(m.getErrorCode());
+		System.out.println(m.getSQLState());
+		
+	}
+	return team;
+}
 
 public void updateUserName(User u, String userName) {
 

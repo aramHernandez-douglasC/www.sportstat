@@ -41,7 +41,8 @@ public class ProfileServlet extends HttpServlet {
 		UserDAO udao = new UserDAO();
 		switch(request.getParameter("action")) {
 		case "username":
-			User us = new User()
+			User us = new User();
+			
 		}
 	}
 
