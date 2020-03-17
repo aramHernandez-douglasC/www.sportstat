@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.project.Entity.Login;
+import com.project.Entity.User;
 
 /**
  * Servlet implementation class LoginServlet
@@ -17,7 +18,7 @@ import com.project.Entity.Login;
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	Login loginToken;
+	User loginToken;
 	LoginService loginService;
     /**
      * @see HttpServlet#HttpServlet()
@@ -45,7 +46,7 @@ public class LoginServlet extends HttpServlet {
 		String userName = request.getParameter("uname");
 		String passWord = request.getParameter("pword");
 		
-		loginToken = new Login(userName,passWord);
+		loginToken = new User(userName,passWord);
 		loginService = new LoginService();
 		
 		if(loginService.checkAuthentication(loginToken))

@@ -24,6 +24,9 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script> 
+<script src="//cdn.jsdelivr.net/webshim/1.14.5/polyfiller.js"></script>  
+  
   
 </head>
 <body>
@@ -46,21 +49,57 @@
   	<a href = "LogoutPage.jsp">Log Out</a>
   </div>
   <br><h1 class = "container">Register</h1>
+ 
   <table class = "container">
   	<form action = "RegisterServlet" method = "post" class = "container">
   		<tr>
-  			<td>Username</td>
+  			<td>Full Name</td>
+  			<td><input name = "fname" type = "text"> </td>
+  		</tr>
+  		<tr>
+  			<td>Date of Birth</td>
+  			
+  			<td><input id="datePick" name = "dob" type = "date"> </td>
+  		</tr>
+  		<tr>
+  			<td>City</td>
+  			<td><input name = "city" type = "text"></td>
+  		</tr>
+  		<tr>
+  			<td>Province or State</td>
+  			<td><input name = "province" type = "text"> </td>
+  		</tr>
+  		<tr>
+  			<td>Country</td>
+  			<td><input name = "country" type = "text"> </td>
+  		</tr>
+  		<tr>
+  			<td>Login User</td>
   			<td><input name = "uname" type = "text"> </td>
   		</tr>
   		<tr>
   			<td>Password</td>
-  			<td><input name = "pword" type = "password"></td>
+  			<td><input name = "pword" type = "password"> </td>
   		</tr>
   		<tr>
   			<td><input type = "submit" value = "Register"></td>
   		</tr>
   	</form>
   </table>
+  
+<script>
+webshims.setOptions('forms-ext', {types: 'date'});
+webshims.polyfill('forms forms-ext');
+$.webshims.formcfg = {
+en: {
+    dFormat: '-',
+    dateSigns: '-',
+    patterns: {
+        d: "yy-mm-dd"
+    }
+}
+};
+</script>
 
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->

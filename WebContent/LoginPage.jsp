@@ -42,10 +42,9 @@
   <div class = "container">
   	<a href = "MainPage.jsp">Home</a>
   	<a href = "Register.jsp">Register</a>
-  	<a href = "LoginPage.jsp">Log In</a>
-  	<a href = "LogoutPage.jsp">Log Out</a>
   </div>
   
+  <br><h1 class = "container">Login</h1>
   <table class = "container" align ="center">
   	<form action = "LoginServlet" method = "post" class = "row">
   		<tr>

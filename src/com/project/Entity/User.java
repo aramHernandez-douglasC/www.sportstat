@@ -27,6 +27,29 @@ public class User {
 		this._loginPassword = _loginPassword;
 	}
     
+    public User(String _fullName, Date _dob, String _city, String _province, String _country,
+			String _loginUser, String _loginPassword) {
+		super();
+		
+		this._fullName = _fullName;
+		this._dob = _dob;
+		this._city = _city;
+		this._province = _province;
+		this._country = _country;
+		this._loginUser = _loginUser;
+		this._loginPassword = _loginPassword;
+	}
+    
+    
+    
+	public User(String _loginUser, String _loginPassword) {
+		super();
+		this._loginUser = _loginUser;
+		this._loginPassword = _loginPassword;
+	}
+
+
+
 	public int get_userID() {
 		return _userID;
 	}
@@ -74,6 +97,15 @@ public class User {
 	}
 	public void set_loginPassword(String _loginPassword) {
 		this._loginPassword = _loginPassword;
+	}
+	
+	public boolean checkLoginToken(User tokenToCheck)
+	{
+		if(tokenToCheck.get_loginPassword().contentEquals(_loginPassword))
+		{
+			return true;
+		}
+		return false;
 	}
 }
 	

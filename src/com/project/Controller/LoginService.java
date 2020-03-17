@@ -1,12 +1,13 @@
 package com.project.Controller;
 
 import com.project.Entity.Login;
+import com.project.Entity.User;
 
 public class LoginService 
 {
-	Login userLogin = new Login("bro","ham");
+	User userLogin = new User("bro","ham");
 	
-	public boolean checkAuthentication(Login tokenToAuthenticate)
+	public boolean checkAuthentication(User tokenToAuthenticate)
 	{
 		if(userLogin.checkLoginToken(tokenToAuthenticate))
 		{

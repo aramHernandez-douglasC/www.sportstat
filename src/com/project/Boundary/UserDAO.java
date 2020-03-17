@@ -3,7 +3,6 @@ package com.project.Boundary;
 import java.sql.SQLException;
 
 
-
 import com.project.Entity.User;
 
 public class UserDAO extends DatabaseHelper {
@@ -216,6 +215,35 @@ public void updatePassword(User u, String userName) {
 			System.out.println(m.getErrorCode());
 			System.out.println(m.getSQLState());
 		}
+	}
+	
+public void checkLogin(User loginToken)
+	{
+		String query = "SELECT * FROM User WHERE _loginUser = ? AND _loginPassword = ?";
+		
+		try
+		{
+			connectDB();
+			this.prepStatement = this.connect.prepareStatement(query);
+			this.prepStatement.setString(1, loginToken.get_loginUser());
+			this.prepStatement.setString(2, loginToken.get_loginPassword());
+			this.resultSet = this.prepStatement.executeQuery();
+			
+			if(this.resultSet.next())
+			{
+				System.out.println("true");
+			}
+			else
+			{
+				System.out.println("false");
+			}
+			disconnectDB();
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		
 	}
 	
 	
