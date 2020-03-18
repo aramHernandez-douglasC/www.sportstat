@@ -135,32 +135,57 @@ public void updateDOB(String userName, Date dob) {
 	}
 public User getUser(String userName) {
 	
-	User team = null;
-	String sql = "SELECT * FROM User WHERE _loginUser =" + userName +";";
+	User team = new User();
+	String fullname = "";
+	String city ="";
+	String province="";
+	String country="";
+	String loginUser="";
+	String password="" ;
+	int id = 0;
+	Date date1 = new Date();
+	
+	
+	String sql = "SELECT * FROM User WHERE "+"_loginUser = ?;";
 	try {
-		connectDB();
+		connectDB();	
+
+		this.prepStatement = this.connect.prepareStatement(sql);
+		this.prepStatement.setString(1, userName);
+		this.resultSet = this.prepStatement.executeQuery();
+		
+		
+		
+		
+		
+		
+	    while(resultSet.next()){
+		     id = Integer.parseInt(resultSet.getString("_loginID"));
+		     fullname = resultSet.getString("_fullName");
+		     try {
+					date1 = new SimpleDateFormat("yy/mm/dd").parse(resultSet.getString("_dob"));
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}  
+		     city = resultSet.getString("_city");
+		     province = resultSet.getString("_province");
+		     country = resultSet.getString("_country");
+		     loginUser = resultSet.getString("_loginUser");
+		     password = resultSet.getString("_loginPassword");
+		    
+		     team.set_userID(id);
+		     team.set_fullName(fullname);
+		     team.set_dob(date1);
+		     team.set_city(city);
+		     team.set_province(province);
+		     team.set_country(country);
+		     team.set_loginUser(loginUser);
+		     team.set_loginPassword(password);
+	    }
 		
 
-		this.statement = this.connect.createStatement();
-		this.resultSet = this.statement.executeQuery(sql);
-		
-		Date date1 = new Date();
-		try {
-			date1 = new SimpleDateFormat("yy/mm/dd").parse(resultSet.getString("_dob"));
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}  
-		
-	     team = new User(Integer.parseInt(resultSet.getString("_userID")),
-				resultSet.getString("_fullName"), 
-				date1, 
-				resultSet.getString("_city"),
-				resultSet.getString("_province"),
-				resultSet.getString("_country"),
-				resultSet.getString("_loginUser"),
-				resultSet.getString("_loginPassword"));
-
+	    
 		
 		disconnectDB();
 

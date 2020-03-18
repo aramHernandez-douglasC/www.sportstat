@@ -1,6 +1,7 @@
 package com.project.Controller;
 
 import java.io.IOException;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -59,15 +60,29 @@ public class LoginServlet extends HttpServlet {
 			session.setAttribute("user", userName);
 			session.setMaxInactiveInterval(-1);
 			
-			UserDAO dao, new UserDAO();
+			UserDAO dao =  new UserDAO();
+			User g = dao.getUser((String)userName); 
 			
+			String username=g.get_loginUser();
+			String fullName=g.get_fullName();
+			Date dob=g.get_dob();
+			String country=g.get_country();
+			
+			System.out.println(username);
+			System.out.println(fullName);
+			System.out.println(dob);
 			
 			//Redirect to sample jsp
 			response.sendRedirect("sample.jsp");
 			System.out.println("Login Success");
 			
 			HttpSession ses = request.getSession();
-			ses.setAttribute("userName", userName);
+			
+			ses.setAttribute("userName", username);
+			ses.setAttribute("fName", fullName);
+			ses.setAttribute("dob", dob);
+			ses.setAttribute("country", country);
+			
 		}
 		else
 		{
