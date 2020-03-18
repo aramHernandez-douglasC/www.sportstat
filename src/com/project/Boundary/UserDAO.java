@@ -233,7 +233,7 @@ public void updateUserName( String userName, String userNew) {
 
 		} catch (SQLException m) {
 
-			System.out.println("Error updating user fullname");
+			System.out.println("Error updating user username");
 			System.out.println(m.getMessage());
 			System.out.println(m.getErrorCode());
 			System.out.println(m.getSQLState());
