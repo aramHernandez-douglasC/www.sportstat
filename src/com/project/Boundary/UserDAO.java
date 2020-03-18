@@ -4,8 +4,6 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
-import com.project.Entity.Team;
 import com.project.Entity.User;
 
 public class UserDAO extends DatabaseHelper {
