@@ -59,6 +59,31 @@ CREATE TABLE Player(
     PRIMARY KEY (_playerId)
     
 );
+CREATE TABLE TrackList(
+	_trackID INT NOT NULL AUTO_INCREMENT,
+	_teamID VARCHAR(50),
+	_teamName VARCHAR(50),
+	_userID VARCHAR(50),
+	_userName VARCHAR(50),
+	PRIMARY KEY (_trackID),
+	CONSTRAINT FK_TeamID FOREIGN KEY (_teamID) 
+	REFERENCES TEAM(_teamID),
+	CONSTRAINT FK_TeamName FOREIGN KEY (_teamName)
+	REFERENCES TEAM(_teamFullName),
+	CONSTRAINT FK_UserID FOREIGN KEY (_userID)
+	REFERENCES User( _loginId),
+	CONSTRAINT FK_UserName FOREIGN KEY (_userName)
+	REFERENCES User( _loginUser)	
+);
+
+/*CREATE TABLE Orders (
+    OrderID int NOT NULL,
+    OrderNumber int NOT NULL,
+    PersonID int,
+    PRIMARY KEY (OrderID),
+    CONSTRAINT FK_PersonOrder FOREIGN KEY (PersonID)
+    REFERENCES Persons(PersonID)
+);*/
 
 insert into User (_fullName, _dob, _city, _province, _country, _loginUser, _loginPassword) values ('Tami Jermey', '8/17/1978', 'Stockton', 'California', 'United States', 'tjermey0', 'iWeyVltNp');
 insert into User (_fullName, _dob, _city, _province, _country, _loginUser, _loginPassword) values ('Maud Dellit', '10/28/1987', 'Oceanside', 'California', 'United States', 'mdellit1', 'ORustLsvNG0');

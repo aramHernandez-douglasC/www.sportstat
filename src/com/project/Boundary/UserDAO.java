@@ -4,6 +4,8 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import com.project.Entity.Team;
 import com.project.Entity.User;
 
 public class UserDAO extends DatabaseHelper {
@@ -342,6 +344,42 @@ public void checkLogin(User loginToken)
 		}
 		
 	}
+public void trackTeam(User u, Team t) {
+	//insert into TrackList (_teamName, _userID,_userName) 
+	//values (11,"test",21,"p");
+	String query = "insert into TrackList (_teamID, _teamName, _userID,_userName)"
+			+ "values (?,?,?,?);";
+	
+	String userName = u.get_loginUser();
+	int userID = u.get_userID();
+	int teamID = t.get_teamID();
+	String teamName = t.get_teamFullName();
+	
+	try {
+		connectDB();
+
+		this.prepStatement = this.connect.prepareStatement(query);
+
+		this.prepStatement.setInt(1, teamID);
+		this.prepStatement.setString(2, teamName);
+		this.prepStatement.setInt(3, userID);
+		this.prepStatement.setString(4, userName);
+	
+		
+		
+
+		this.prepStatement.execute();
+
+		System.out.println("User" + userName +"Now Tracking Team: " + teamName);
+		disconnectDB();
+
+	} catch (SQLException m) {
+		System.out.println("Error Adding User...");
+		System.out.println(m.getMessage());
+		System.out.println(m.getErrorCode());
+		System.out.println(m.getSQLState());
+	}
+}
 	
 	
 	

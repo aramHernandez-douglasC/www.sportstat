@@ -45,7 +45,9 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/MainStyle.css">
   
+ <script src = "js/client"></script>
   <script src="https://kit.fontawesome.com/83ce4287de.js" crossorigin="anonymous"></script>
   
 </head>
@@ -59,7 +61,7 @@
   </div>
   
   <h3>Current Teams</h3>
-	<table>
+	<table class= "team-table">
 	<tr>
 		<thead>
 		<th>Team FullName</th>
@@ -75,14 +77,14 @@
 	<%-- Iterate through the buyers write out one table row per. --%>
 	 <%
 		for (Team b: allTeams){
-			out.print("<tr>");
+			out.print("<tr class='tab-teams'>");
 			out.print("<td>"+ b.get_teamFullName() +"</td>");
 			out.print("<td>"+ b.get_teamCity() +"</td>");
 			out.print("<td>"+ b.get_teamDivision() +"</td>");
 			out.print("<td>"+ b.get_teamCoach() +"</td>");
 			out.print("<td>"+ b.get_teamStadium() +"</td>");
 			out.print("<td>"+ b.get_teamSeason() +"</td>");
-			out.print("<td> <i class='fas fa-plus-circle'></i> </td>");
+			out.print("<td> <button class='addBtn'><i class='fas fa-plus-circle'></i></button> </td>");
 			out.print("</tr>");
 		}
 	
