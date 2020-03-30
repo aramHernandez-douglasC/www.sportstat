@@ -29,7 +29,7 @@
   <!-- Basic Page Needs
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->  
   <meta charset="ISO-8859-1">
-  <title>Sample Page</title>
+  <title>Main Account Page</title>
   <meta name="description" content="">
   <meta name="author" content="">
 
@@ -45,6 +45,8 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
+  
+  <script src="https://kit.fontawesome.com/83ce4287de.js" crossorigin="anonymous"></script>
   
 </head>
 <body>
@@ -80,6 +82,7 @@
 			out.print("<td>"+ b.get_teamCoach() +"</td>");
 			out.print("<td>"+ b.get_teamStadium() +"</td>");
 			out.print("<td>"+ b.get_teamSeason() +"</td>");
+			out.print("<td> <i class='fas fa-plus-circle'></i> </td>");
 			out.print("</tr>");
 		}
 	
