@@ -57,9 +57,7 @@
 </head>
 <body>
   <div>
-  	<a href = "MainPage.jsp">Home</a>
-  	<a href = "Register.jsp">Register</a>
-  	<a href = "LoginPage.jsp">Log In</a>
+  	<a href = "sample.jsp">Home</a>
   	<a href = "LogoutPage.jsp">Log Out</a>
   	<a href = "MyAccount.jsp" style=>Hello <% out.print(sessUser); %> </a>
   </div>
@@ -69,8 +67,7 @@
 	<table class= "track-table">
 	<tr>
 		<thead>
-		<th>Team FullName</th>
-		
+		<th>Team FullName</th>		
 		<th>Division</th>
 		<th>Conference</th>
 		

@@ -35,9 +35,12 @@ function servletCom(team){
 	  xhttp.onreadystatechange = function() {
 	    if (this.readyState == 4 && this.status == 200) {	       
 	    	window.location = "sample.jsp"
-	    	//document.getElementById("demo").innerHTML = this.responseText;
-	    }
+	     }
 	  };
+	  
+	  //for this AJAX request to work, is NECESSARY 
+	  //that you change the /ProjectCont/Track...
+	  //for the current folder in which you are working 
 	  xhttp.open("POST", "http://localhost:8080/ProjectCont/TrackingServlet?teamParam=" + team, true);
 	  xhttp.send();
 }
