@@ -1,7 +1,9 @@
 package com.project.Boundary;
 
 import java.sql.SQLException;
+
 import java.util.ArrayList;
+
 
 import com.project.Entity.*;
 
@@ -142,4 +144,71 @@ public class TeamDAO extends DatabaseHelper{
 		}
 		return allTeams;
 	}
+	public Team getTeam(String teamName) {
+		
+		Team team = new Team();
+		
+		String _APIkey = "";
+		int _teamID = 0;
+		String _teamCity= "";
+		String _teamFullName= "";
+		String _teamConference= "";
+		String _teamDivision= "";
+		String _teamCoach= "";
+		String _teamStadium= "";
+		String _teamSeason= "";
+		
+		
+		
+		String sql = "SELECT * FROM User WHERE "+"_teamFullName = ?;";
+		try {
+			connectDB();	
+
+			this.prepStatement = this.connect.prepareStatement(sql);
+			this.prepStatement.setString(1, teamName);
+			this.resultSet = this.prepStatement.executeQuery();
+			
+			
+			
+			
+			
+			
+		    while(resultSet.next()){
+		    	_APIkey = resultSet.getString("_APIkey");
+		    	_teamID = resultSet.getInt("_teamID");
+		    	_teamCity = resultSet.getString("_teamCity");
+		    	_teamFullName = resultSet.getString("_teamFullName");
+		    	_teamConference = resultSet.getString("_teamConference");
+		    	_teamDivision = resultSet.getString("_teamDivision");
+		    	_teamCoach = resultSet.getString("_teamCoach");
+		    	_teamStadium = resultSet.getString("_teamStadium");
+		    	_teamSeason = resultSet.getString("_teamSeason");
+			    
+			     team.set_key(_APIkey);
+			     team.set_teamID(_teamID);
+			     team.set_teamCity(_teamCity);
+			     team.set_teamFullName(_teamFullName);
+			     team.set_teamConference(_teamConference);
+			     team.set_teamDivision(_teamDivision);
+			     team.set_teamCoach(_teamCoach);
+			     team.set_teamStadium(_teamStadium);
+			     team.set_teamSeason(_teamSeason);
+		    }
+			
+
+		    
+			
+			disconnectDB();
+
+		}
+		catch(SQLException m) {
+			
+			System.out.println(m.getMessage());
+			System.out.println(m.getErrorCode());
+			System.out.println(m.getSQLState());
+			
+		}
+		return team;
+	}
+
 }

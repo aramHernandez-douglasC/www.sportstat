@@ -47,7 +47,7 @@
   <link rel="stylesheet" href="css/skeleton.css">
   <link rel="stylesheet" href="css/MainStyle.css">
   
- <script src = "js/client"></script>
+ 
   <script src="https://kit.fontawesome.com/83ce4287de.js" crossorigin="anonymous"></script>
   
 </head>
@@ -78,13 +78,13 @@
 	 <%
 		for (Team b: allTeams){
 			out.print("<tr class='tab-teams'>");
-			out.print("<td>"+ b.get_teamFullName() +"</td>");
+			out.print("<td class ='teamName'>"+ b.get_teamFullName() +"</td>");
 			out.print("<td>"+ b.get_teamCity() +"</td>");
 			out.print("<td>"+ b.get_teamDivision() +"</td>");
 			out.print("<td>"+ b.get_teamCoach() +"</td>");
 			out.print("<td>"+ b.get_teamStadium() +"</td>");
 			out.print("<td>"+ b.get_teamSeason() +"</td>");
-			out.print("<td> <button class='addBtn'><i class='fas fa-plus-circle'></i></button> </td>");
+			out.print("<td class= 'btnPlace'>  </td>");
 			out.print("</tr>");
 		}
 	
@@ -97,5 +97,7 @@
   
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+   <script src = "js/client.js"></script>
 </body>
+
 </html>

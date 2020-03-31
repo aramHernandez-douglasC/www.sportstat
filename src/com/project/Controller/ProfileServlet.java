@@ -39,30 +39,76 @@ public class ProfileServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		UserDAO udao = new UserDAO();
+		User us = new User();
+		
+		HttpSession ses = request.getSession();			
+		String user = ses.getAttribute("userName").toString();
+		
+		
+		
 		
 		switch(request.getParameter("action")) {
 		case "username":
-			UserDAO udao = new UserDAO();
-			String newUserName = request.getParameter("uname");
-			String repeat = request.getParameter("rname");
 			
-			HttpSession ses = request.getSession(false);			
-			String user = ses.getAttribute("userName").toString();
-			out.println(user);
+			
+			String newUserName = request.getParameter("uname");
+			String repeat = request.getParameter("rname");		
+			
 			
 			if(!newUserName.equals("") || !repeat.equals("") ) {
-				if (newUserName.contentEquals(repeat)) {
+				if (newUserName.equals(repeat)) {
 					udao.updateUserName(user, newUserName);
+					ses.removeAttribute("userName");
+					us = udao.getUser(user);
+					ses.setAttribute("userName", newUserName);
 					response.sendRedirect("MyAccount.jsp");
+					
 				}
 				else {
 					out.println("Usernames are not the same");
+					response.sendRedirect("MyAccount.jsp");
 				}
 			}
 			else {
 				out.println("One of the fields or both are empty");
+				response.sendRedirect("MyAccount.jsp");
 			}
+			break;
+			
+		case "password":
+			
+			us = udao.getUser(user);
+			String oldpas = request.getParameter("oldPword");
+			String pas = request.getParameter("newPword");
+			String pasRep = request.getParameter("rNewPword");
+			String database = us.get_loginPassword();
+			
+			out.print(database);
+			if(oldpas.equals(database)) {			
+			
+				if(!pas.equals("") || !pasRep.equals("") ) {
+					if (pas.equals(pasRep)) {
+						udao.updatePassword(user, pas);
+						response.sendRedirect("MyAccount.jsp");
+						out.print("password updated");
+						
+					}
+					else {
+						out.println("passwords are not the same");
+						response.sendRedirect("MyAccount.jsp");
+					}
+				}
+				else {
+					out.println("One of the fields or both are empty");
+					response.sendRedirect("MyAccount.jsp");
+				}
+			}
+			else {
+				out.println("passwords are not similar");
+				response.sendRedirect("MyAccount.jsp");
+			}
+			break;
 			
 			
 		}
