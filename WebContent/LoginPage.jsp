@@ -37,14 +37,14 @@
   	<form action = "LoginServlet" method = "post" class = "row">
   		<tr>
   			<td>Username</td>
-  			<td><input name = "uname" type = "text"> </td>
+  			<td><input name = "uname" id = "user" type = "text"> </td>
   		</tr>
   		<tr>
   			<td>Password</td>
-  			<td><input name = "pword" type = "password"></td>
+  			<td><input name = "pword" id = "pass" type = "password"></td>
   		</tr>
   		<tr>
-  			<td><input type = "submit" value = "Log in"></td>
+  			<td><input type = "submit" id = "sub" value = "Log in"></td>
   		</tr>
   	</form>
   </table>
