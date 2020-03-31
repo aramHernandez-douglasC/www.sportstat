@@ -47,10 +47,7 @@ public class LoginServlet extends HttpServlet {
 		//doGet(request, response);
 		response.setContentType("text/css");
 		String userName = request.getParameter("uname");
-		String passWord = request.getParameter("pword");
-		
-		
-		
+		String passWord = request.getParameter("pword");		
 		
 		if(loginDAO.checkLogin(userName, passWord))
 		{
