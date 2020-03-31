@@ -20,7 +20,7 @@
 	allCoach = cdao.displayStadium(); */
 	
 	
-	
+	String sessUser = (String)session.getAttribute("userName");
  %>
 <!DOCTYPE html>
 <html>
@@ -28,46 +28,41 @@
 <!-- Used an HTML Template/Boilerplate code to generate the formatting present in this page. -->
 <!-- Boilerplate Code Taken from http://getskeleton.com/ -->
   <!-- Basic Page Needs
-  â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“ -->  
+  €“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“ -->  
   <meta charset="ISO-8859-1">
   <title>Main Page</title>
   <meta name="description" content="">
   <meta name="author" content="">
 
   <!-- Mobile Specific Metas
-  â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“ -->
+  €“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“ -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- FONT
-  â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“ -->
+  €“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“ -->
   <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
 
   <!-- CSS
-  â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“ -->
+  €“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“ -->
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
 </head>
 <body>
-	<div id="top-header">
-         <ul id="opt-menu-head-left">
-             <li> <a> Menu </a></li>
-             <li><a>Search Teams</a></li>
-             <form action = "" method = "">
-                 <input type="text" name="team">
-                 <input type="hidden" name="action" value="search">
-                 <input type="submit" value="Search">
-             </form>             
-         </ul>
-         <h1 id="main-tit-head">SportTube</h1>
-         <span id="welcome-user"></span>
-         <ul id="opt-menu-head-right">
-            <li> <a href = "Register.jsp"> Register Now! </a></li>
-            <li><a href = "LoginPage.jsp">Sign in</a></li>
-            <li><a >My Account</a></li>             
-        </ul>
-
-    </div>
-    
+<header>
+<nav>
+	<ul>
+	<li>
+	<a> Menu </a>
+    <a href = "Register.jsp"> Register Now! </a>
+    <a href = "LoginPage.jsp">Sign in</a>
+    <a href = "MyAccount.jsp" style=>Hello <% out.print(sessUser); %> </a></li>
+    <li>Search Teams<form action = "" method = "">
+        <input type="text" name="team">
+        <input type="hidden" name="action" value="search"><input type="submit" value="Search"></form></li> 
+	</ul>
+</nav>
+</header>
+<h1 id="main-tit-head">SportTube</h1>    
 	<h3>Current Teams</h3>
 	<table>
 	<tr>

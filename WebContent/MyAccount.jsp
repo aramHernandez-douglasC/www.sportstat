@@ -12,29 +12,33 @@ String sessUser = (String)session.getAttribute("userName");
 <!-- Used an HTML Template/Boilerplate code to generate the formatting present in this page. -->
 <!-- Boilerplate Code Taken from http://getskeleton.com/ -->
   <!-- Basic Page Needs
-  â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“ -->  
+  €“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“ -->  
   <meta charset="ISO-8859-1">
   <title>My Account</title>
   <meta name="description" content="">
   <meta name="author" content="">
 
   <!-- Mobile Specific Metas
-  â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“ -->
+  €“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“ -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- FONT
-  â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“ -->
+  €“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“ -->
   <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
 
   <!-- CSS
-  â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“â€“ -->
+  €“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“ -->
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
   <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script> 
   <script src="//cdn.jsdelivr.net/webshim/1.14.5/polyfiller.js"></script> 
 </head>
 <body>
- <div>
+
+<header>
+<nav>
+<ul>
+<li><div>
   	<a href = "MainPage.jsp">Home</a>
   	<a href = "Register.jsp">Register</a>
   	<a href = "LoginPage.jsp">Log In</a>
@@ -42,7 +46,10 @@ String sessUser = (String)session.getAttribute("userName");
  </div>
  <h2 style='text-align:center;'>My Account</h2>
  <h4>Hello <% out.print(sessUser); %></h4>
- 
+ </li>
+</ul>
+</nav>
+</header> 
  <button class="accordion">Change Username</button>
 <div class="panel">
     <table class = "container">
