@@ -10,7 +10,7 @@ import java.sql.Statement;
 public class DatabaseHelper {
 	public String dsn = "jdbc:mysql://localhost/SportsStatsDB?useLegacyDatetimeCode=false&serverTimezone=UTC";
 	public String username = "root";
-	public String password = "";
+	public String password = "!l0v3d@t@";
 
 	public Connection connect = null;
 	public ResultSet resultSet = null;
