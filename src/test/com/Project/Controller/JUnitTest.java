@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import com.project.Controller.LoginService;
 import com.project.Entity.Login;
 
 import jdk.internal.org.objectweb.asm.util.CheckAnnotationAdapter;
