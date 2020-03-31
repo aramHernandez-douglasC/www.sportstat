@@ -41,7 +41,7 @@ function servletCom(team){
 	  //for this AJAX request to work, is NECESSARY 
 	  //that you change the /ProjectCont/Track...
 	  //for the current folder in which you are working 
-	  xhttp.open("POST", "http://localhost:8080/ProjectCont/TrackingServlet?teamParam=" + team, true);
+	  xhttp.open("POST", "http://localhost:8080/hello/TrackingServlet?teamParam=" + team, true);
 	  xhttp.send();
 }
 /*
