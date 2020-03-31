@@ -24,7 +24,7 @@ class UserDAOTest {
 	}
 
 	//@Test
-	/**void testAddInfo() { 
+void testAddInfo() { 
 		@SuppressWarnings("deprecation")
 		Date dob = new Date(90, 03, 31);
 		
@@ -32,7 +32,7 @@ class UserDAOTest {
 	  	user.addInfo(testUser);
 	  	
 	  	Assert.assertNotNull(user);
-	}**/
+	}
 	@Test
 	void testGetUser() {
 		
