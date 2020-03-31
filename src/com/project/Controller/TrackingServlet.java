@@ -56,6 +56,7 @@ public class TrackingServlet extends HttpServlet {
 		Udao.trackTeam(userObj, teamObj);
 		
 		 System.out.print("success");
+		 response.sendRedirect("sample.jsp");
 		 
 		 
 		 

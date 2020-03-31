@@ -144,6 +144,42 @@ public class TeamDAO extends DatabaseHelper{
 		}
 		return allTeams;
 	}
+	public ArrayList<Team> yourTeams(String username){
+		ArrayList<Team> allTeams = new ArrayList <Team>();
+		
+		//Select all Teams
+		// SELECT TrackList._teamName, Team._teamDivision, Team._teamConference
+		// FROM TrackList INNER JOIN Team on Team._teamID = TrackList._teamID
+		// WHERE _userName = "aram";   
+		String sql = "SELECT TrackList._teamName, Team._teamDivision, Team._teamConference" 
+		         +" FROM TrackList INNER JOIN Team on Team._teamID = TrackList._teamID "
+				 + "WHERE _userName = ? "; 
+		try {
+			connectDB();
+			
+			this.prepStatement = this.connect.prepareStatement(sql);
+			this.prepStatement.setString(1, username);
+			this.resultSet = this.prepStatement.executeQuery();
+			
+			while(resultSet.next()) {
+				Team team = new Team();
+				team.set_teamFullName(resultSet.getString("TrackList._teamName"));
+				team.set_teamDivision(resultSet.getString("Team._teamDivision"));
+				team.set_teamConference(resultSet.getString("Team._teamConference"));
+				
+				allTeams.add(team);
+			}
+			disconnectDB();
+		}
+		catch(SQLException m) {
+			
+			System.out.println(m.getMessage());
+			System.out.println(m.getErrorCode());
+			System.out.println(m.getSQLState());
+			
+		}
+		return allTeams;
+	}
 	public Team getTeam(String teamName) {
 		
 		Team team = new Team();

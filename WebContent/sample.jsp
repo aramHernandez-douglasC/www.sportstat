@@ -6,6 +6,8 @@
  <%
  	/* ArrayList<Player> allPlayers = new ArrayList<Player>(); */
  	ArrayList<Team> allTeams = new ArrayList<Team>();
+ 	
+ 	ArrayList<Team> yourTeams = new ArrayList<Team>();
  	/* ArrayList<Stadium> allStadiums = new ArrayList<Stadium>();
  	ArrayList<TacticsCoach> allCoach = new ArrayList<TacticsCoach>(); */
  	
@@ -16,10 +18,12 @@
 	
 	/* allPlayers = bdao.displayPlayer(); */
 	allTeams = tdao.displayTeam();
+	
 	/* allStadiums = sdao.displayStadium();
 	allCoach = cdao.displayStadium(); */
 	
 	String sessUser = (String)session.getAttribute("userName");
+	yourTeams = tdao.yourTeams(sessUser);
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,7 +64,37 @@
   	<a href = "MyAccount.jsp" style=>Hello <% out.print(sessUser); %> </a>
   </div>
   
-  <h3>Current Teams</h3>
+   <h3>Your Teams</h3>
+   
+	<table class= "track-table">
+	<tr>
+		<thead>
+		<th>Team FullName</th>
+		
+		<th>Division</th>
+		<th>Conference</th>
+		
+	
+		</thead>
+	</tr>
+	
+	<%-- Iterate through the buyers write out one table row per. --%>
+	 <%
+		for (Team b: yourTeams){
+			out.print("<tr class='tabb-teams'>");
+			out.print("<td class ='-yourTeams-table'>"+ b.get_teamFullName() +"</td>");
+			
+			out.print("<td>"+ b.get_teamDivision() +"</td>");
+			out.print("<td>"+ b.get_teamConference() +"</td>");
+			
+			//out.print("<td class= 'btnPlace'>  </td>");
+			out.print("</tr>");
+		}
+	
+	%>
+	</table>
+  
+  <h3>Playing Teams</h3>
 	<table class= "team-table">
 	<tr>
 		<thead>
@@ -89,6 +123,7 @@
 		}
 	
 	%>
+	</table>
   
   
 

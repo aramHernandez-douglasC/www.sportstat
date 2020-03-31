@@ -1,6 +1,9 @@
 var myNodelist = document.getElementsByClassName("btnPlace");
 var teamName = document.getElementsByClassName("teamName");
 
+console.log(myNodelist);
+console.log(teamName);
+
 var i;
 for (i = 0; i < myNodelist.length; i++) {
   var span = document.createElement("i");
@@ -10,13 +13,17 @@ for (i = 0; i < myNodelist.length; i++) {
   button.className = "addBtn";
   button.appendChild(span);
   myNodelist[i].appendChild(button);
+  //console.log(i);
+  //console.log(teamName[i].innerText);
 }
+
+
 
 //adding functionality 2 the button
 var btn = document.getElementsByClassName("addBtn");
 var x;
 for (x = 0; x < btn.length; x++) {
-	 btn[x].onclick = function() {
+	 btn[x].onclick = function() {		 
 		 var team = this.id;
 		 servletCom(team);	
 	 }
@@ -26,8 +33,8 @@ for (x = 0; x < btn.length; x++) {
 function servletCom(team){
 	var xhttp = new XMLHttpRequest();
 	  xhttp.onreadystatechange = function() {
-	    if (this.readyState == 4 && this.status == 200) {
-	      
+	    if (this.readyState == 4 && this.status == 200) {	       
+	    	window.location = "sample.jsp"
 	    	//document.getElementById("demo").innerHTML = this.responseText;
 	    }
 	  };
