@@ -82,18 +82,18 @@ CREATE TABLE Statistics(
 	_GP VARCHAR(50),
 	_W VARCHAR(50),
 	_L VARCHAR(50),
-	_WIN% VARCHAR(50),
+	_WINP VARCHAR(50),
 	_MIN VARCHAR(50),
 	_PTS VARCHAR(50),
 	_FGM VARCHAR(50),
 	_FGA VARCHAR(50),
-	_FG% VARCHAR(50),
+	_FGP VARCHAR(50),
 	_3PM VARCHAR(50),
 	_3PA VARCHAR(50),
-	_3P% VARCHAR(50),
+	_3PP VARCHAR(50),
 	_FTM VARCHAR(50),
 	_FTA VARCHAR(50),
-	_FT% VARCHAR(50),
+	_FTP VARCHAR(50),
 	_OREB VARCHAR(50),
 	_DREB VARCHAR(50),
 	_REB VARCHAR(50),
@@ -105,6 +105,7 @@ CREATE TABLE Statistics(
 	_PF VARCHAR(50),
 	_PFD VARCHAR(50),
 	_MoreLess VARCHAR(50),
+	PRIMARY KEY (_statsID)
 );
 
 /*CREATE TABLE Orders (
@@ -145,7 +146,7 @@ insert into Stadium (_stadiumName, _stadiumCity, _stadiumCountry, _stadiumCapaci
 insert into Stadium (_stadiumName, _stadiumCity, _stadiumCountry, _stadiumCapacity, _stadiumPlayingSurface, _stadiumType) values ('Champlin LLC', 'Armenokhórion', 'Greece', 46855, 'Ericaceae', 'Advanced intermediate hub');
 insert into Stadium (_stadiumName, _stadiumCity, _stadiumCountry, _stadiumCapacity, _stadiumPlayingSurface, _stadiumType) values ('Towne-Crist', 'Huangzhai', 'China', 58322, 'Primulaceae', 'Vision-oriented high-level intranet');
 insert into Stadium (_stadiumName, _stadiumCity, _stadiumCountry, _stadiumCapacity, _stadiumPlayingSurface, _stadiumType) values ('O''Reilly Group', 'Granja', 'Brazil', 78735, 'Asteraceae', 'Synergized stable pricing structure');
-insert into Stadium (_stadiumName, _stadiumCity, _stadiumCountry, _stadiumCapacity, _stadiumPlayingSurface, _stadiumType) values ('Medhurst and Sons', 'Trảng Bàng', 'Vietnam', 60601, 'Araceae', 'Reverse-engineered stable middleware');
+insert into Stadium (_stadiumName, _stadiumCity, _stadiumCountry, _stadiumCapacity, _stadiumPlayingSurface, _stadiumType) values ('Medhurst and Sons', 'Trang Bang', 'Vietnam', 60601, 'Araceae', 'Reverse-engineered stable middleware');
 insert into Stadium (_stadiumName, _stadiumCity, _stadiumCountry, _stadiumCapacity, _stadiumPlayingSurface, _stadiumType) values ('Hilll, Wilkinson and Mante', 'Karangkeng', 'Indonesia', 21592, 'Juncaceae', 'Self-enabling scalable framework');
 insert into Stadium (_stadiumName, _stadiumCity, _stadiumCountry, _stadiumCapacity, _stadiumPlayingSurface, _stadiumType) values ('Pfannerstill-Mills', 'Piritiba', 'Brazil', 79257, 'Fabaceae', 'Reverse-engineered optimizing matrices');
 
