@@ -117,6 +117,8 @@
 			out.print("<td>"+ b.get_teamSeason() +"</td>");
 			out.print("<td class= 'btnPlace'>  </td>");
 			out.print("</tr>");
+			
+			out.print(b.get_teamFullName() + "," );
 		}
 	
 	%>
