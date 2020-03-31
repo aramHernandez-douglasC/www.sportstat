@@ -370,7 +370,7 @@ public void trackTeam(User u, Team t) {
 
 		this.prepStatement.execute();
 
-		System.out.println("User" + userName +"Now Tracking Team: " + teamName);
+		System.out.println("User: " + userName +" is now tracking: " + teamName);
 		disconnectDB();
 
 	} catch (SQLException m) {

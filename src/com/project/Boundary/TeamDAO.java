@@ -160,7 +160,7 @@ public class TeamDAO extends DatabaseHelper{
 		
 		
 		
-		String sql = "SELECT * FROM User WHERE "+"_teamFullName = ?;";
+		String sql = "SELECT * FROM Team WHERE "+"_teamFullName = ?;";
 		try {
 			connectDB();	
 
@@ -180,8 +180,8 @@ public class TeamDAO extends DatabaseHelper{
 		    	_teamFullName = resultSet.getString("_teamFullName");
 		    	_teamConference = resultSet.getString("_teamConference");
 		    	_teamDivision = resultSet.getString("_teamDivision");
-		    	_teamCoach = resultSet.getString("_teamCoach");
-		    	_teamStadium = resultSet.getString("_teamStadium");
+		    	_teamCoach = resultSet.getString("_headCoach");
+		    	_teamStadium = resultSet.getString("_stadiumName");
 		    	_teamSeason = resultSet.getString("_teamSeason");
 			    
 			     team.set_key(_APIkey);
