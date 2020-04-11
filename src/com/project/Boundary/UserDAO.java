@@ -380,6 +380,38 @@ public void trackTeam(User u, Team t) {
 		System.out.println(m.getSQLState());
 	}
 }
+public void untrackTeam(User u, Team t) {
+	//insert into TrackList (_teamName, _userID,_userName) 
+	//values (11,"test",21,"p");
+	String query = "DELETE FROM TrackList WHERE _userName=? AND _teamName=?;";
+	
+	
+	String userName = u.get_loginUser();
+	String teamName = t.get_teamFullName();
+	
+	try {
+		connectDB();
+
+		this.prepStatement = this.connect.prepareStatement(query);
+
+		this.prepStatement.setString(1, userName);
+		this.prepStatement.setString(2, teamName);
+	
+		
+		
+
+		this.prepStatement.execute();
+
+		System.out.println("User: " + userName +" is not tracking: " + teamName + " anymore");
+		disconnectDB();
+
+	} catch (SQLException m) {
+		System.out.println("Error Adding User...");
+		System.out.println(m.getMessage());
+		System.out.println(m.getErrorCode());
+		System.out.println(m.getSQLState());
+	}
+}
 	
 	
 	

@@ -19,18 +19,29 @@ for (i = 0; i < myNodelist.length; i++) {
 
 
 
-//adding functionality 2 the button
+//adding teams btn
 var btn = document.getElementsByClassName("addBtn");
 var x;
 for (x = 0; x < btn.length; x++) {
 	 btn[x].onclick = function() {		 
 		 var team = this.id;
-		 servletCom(team);	
+		 addServletCom(team);	
 	 }
 	 
 }
 
-function servletCom(team){
+//deleting team icon
+var del = document.getElementsByClassName("delete-team");
+var x;
+for (x = 0; x < del.length; x++) {
+	 del[x].onclick = function() {		 
+		 var teamT = this.id;
+		 deleteServletCom(teamT);	
+	 }
+	 
+}
+
+function addServletCom(team){
 	var xhttp = new XMLHttpRequest();
 	  xhttp.onreadystatechange = function() {
 	    if (this.readyState == 4 && this.status == 200) {	       
@@ -41,7 +52,22 @@ function servletCom(team){
 	  //for this AJAX request to work, is NECESSARY 
 	  //that you change the /ProjectCont/Track...
 	  //for the current folder in which you are working 
-	  xhttp.open("POST", "http://localhost:8080/hello/TrackingServlet?teamParam=" + team, true);
+	  xhttp.open("POST", "http://localhost:8080/projectFinale/TrackingServlet?teamParam=" + team + "&mode=add", true);
+	  xhttp.send();
+}
+
+function deleteServletCom(team){
+	var xhttp = new XMLHttpRequest();
+	  xhttp.onreadystatechange = function() {
+	    if (this.readyState == 4 && this.status == 200) {	       
+	    	window.location = "sample.jsp"
+	     }
+	  };
+	  
+	  //for this AJAX request to work, is NECESSARY 
+	  //that you change the /ProjectCont/Track...
+	  //for the current folder in which you are working 
+	  xhttp.open("POST", "http://localhost:8080/projectFinale/TrackingServlet?teamParam=" + team + "&mode=delete", true);
 	  xhttp.send();
 }
 /*

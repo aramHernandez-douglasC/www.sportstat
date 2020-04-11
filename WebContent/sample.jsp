@@ -83,6 +83,8 @@
 			
 			out.print("<td>"+ b.get_teamDivision() +"</td>");
 			out.print("<td>"+ b.get_teamConference() +"</td>");
+			out.print("<td><a class = 'delete-team' id="+"'"+ b.get_teamFullName() +"'"+"><i class='fa fa-times-circle-o' aria-hidden='true'></i></a></td>");
+			
 			
 			//out.print("<td class= 'btnPlace'>  </td>");
 			out.print("</tr>");

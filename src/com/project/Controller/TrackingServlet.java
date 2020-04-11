@@ -41,7 +41,7 @@ public class TrackingServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String teamParam = request.getParameter("teamParam");
-		
+		String option = request.getParameter("mode");
 		HttpSession ses = request.getSession();			
 		String user = ses.getAttribute("userName").toString();
 		
@@ -53,10 +53,34 @@ public class TrackingServlet extends HttpServlet {
 		userObj = Udao.getUser(user);
 		teamObj = Tdao.getTeam(teamParam);
 		
-		Udao.trackTeam(userObj, teamObj);
+		switch (option) {
+			case "add":
+				
+				
+				Udao.trackTeam(userObj, teamObj);
+				
+				 System.out.print("success");
+				 response.sendRedirect("sample.jsp");
+				 
+				 break;
+				 
+			case "delete":
+				
+				
+				
+				Udao.untrackTeam(userObj, teamObj);
+				
+				 System.out.print("success");
+				 response.sendRedirect("sample.jsp");
+				 
+				 break;
+				 
+			
+		}
 		
-		 System.out.print("success");
-		 response.sendRedirect("sample.jsp");
+		
+		
+		
 		 
 		 
 		 
