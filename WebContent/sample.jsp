@@ -82,7 +82,7 @@
 		for (Team b: yourTeams){
 		    teamStats = sdao.getStat(b.get_teamFullName());
 			
-			out.print(teamStats.get_L());		
+					
 			out.print("<tr class='tabb-teams'>");
 			out.print("<td class ='-yourTeams-table'>"+ b.get_teamFullName() +"</td>");
 			
@@ -90,7 +90,55 @@
 			out.print("<td>"+ b.get_teamConference() +"</td>");
 			out.print("<td><a class = 'delete-team' id="+"'"+ b.get_teamFullName() +"'"+"><i class='fa fa-times-circle-o' aria-hidden='true'></i></a></td>");
 			out.print("</tr>");
-			out.print("<tr><td id='panel'><div>hello</div></td></tr>");
+			out.print("<tr><td class='panel'><div style='overflow-x:auto'>"+
+			    "<table class = 'stat-table'>"+
+		        "<tr>"+
+		        "<th>GP</th>"+
+		        "<th>W</th>"+
+		        "<th>L</th>"+
+		        "<th>WIN</th>"+
+		        "<th>MIN</th>"+
+		        "<th>PTS</th>"+
+		        "<th>FGM</th>"+
+		        "<th>FGA</th>"+
+		        "<th>FG</th>"+
+		        "<th>OREB</th>"+
+		        "<th>DREB</th>"+
+		        "<th>REB</th>"+
+		        "<th>AST</th>"+
+		        "<th>TOV</th>"+
+		        "<th>STL</th>"+
+		        "<th>BLK</th>"+
+		        "<th>BLKA</th>"+
+		        "<th>PF</th>"+
+		        "<th>PFD</th>"+
+		        "<th>+/-</th>"+
+		      "</tr>");
+		   out.print("<tr>"+
+			        "<td>"+teamStats.get_GP()+"</td>"+
+			        "<td>"+teamStats.get_W()+"</td>"+
+			        "<td>"+teamStats.get_L()+"</td>"+
+			        "<td>"+teamStats.get_WIN()+"</td>"+
+			        "<td>"+teamStats.get_MIN()+"</td>"+
+			        "<td>"+teamStats.get_PTS()+"</td>"+
+			        "<td>"+teamStats.get_FGM()+"</td>"+
+			        "<td>"+teamStats.get_FGA()+"</td>"+
+			        "<td>"+teamStats.get_FG()+"</td>"+
+			        "<td>"+teamStats.get_OREB()+"</td>"+
+			        "<td>"+teamStats.get_DREB()+"</td>"+
+			        "<td>"+teamStats.get_REB()+"</td>"+
+			        "<td>"+teamStats.get_AST()+"</td>"+
+			        "<td>"+teamStats.get_TOV()+"</td>"+
+			        "<td>"+teamStats.get_STL()+"</td>"+
+			        "<td>"+teamStats.get_BLK()+"</td>"+
+			        "<td>"+teamStats.get_BLKA()+"</td>"+
+			        "<td>"+teamStats.get_PF()+"</td>"+
+			        "<td>"+teamStats.get_PFD()+"</td>"+
+			        "<td>"+teamStats.get_MoreLess()+"</td>"+
+			      "</tr>");     
+		    out.print("</table>");
+		   out.print("</div></td></tr>");
+			
 		}
 	
 	 	
