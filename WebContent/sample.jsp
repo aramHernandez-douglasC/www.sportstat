@@ -2,12 +2,13 @@
     pageEncoding="ISO-8859-1"%>
 <%@ page import = "java.util.*" %>
 <%@ page import = "com.project.Entity.*" %>
-<%@ page import = "com.project.Boundary.*" %>
+<%@ page import = "com.project.Boundary.*"  %>
  <%
  	/* ArrayList<Player> allPlayers = new ArrayList<Player>(); */
  	ArrayList<Team> allTeams = new ArrayList<Team>();
  	
  	ArrayList<Team> yourTeams = new ArrayList<Team>();
+ 	Stats teamStats = new Stats();
  	/* ArrayList<Stadium> allStadiums = new ArrayList<Stadium>();
  	ArrayList<TacticsCoach> allCoach = new ArrayList<TacticsCoach>(); */
  	
@@ -15,7 +16,7 @@
 	/* CoachDAO cdao = new CoachDAO();
 	StadiumDAO sdao = new StadiumDAO(); */
 	TeamDAO tdao = new TeamDAO();
-	
+	StatsDAO sdao = new StatsDAO();
 	/* allPlayers = bdao.displayPlayer(); */
 	allTeams = tdao.displayTeam();
 	
@@ -51,7 +52,7 @@
   <link rel="stylesheet" href="css/skeleton.css">
   <link rel="stylesheet" href="css/MainStyle.css">
   
- 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://kit.fontawesome.com/83ce4287de.js" crossorigin="anonymous"></script>
   
 </head>
@@ -64,6 +65,7 @@
   
    <h3>Your Teams</h3>
    
+   <div>
 	<table class= "track-table">
 	<tr>
 		<thead>
@@ -78,20 +80,23 @@
 	<%-- Iterate through the buyers write out one table row per. --%>
 	 <%
 		for (Team b: yourTeams){
+		    teamStats = sdao.getStat(b.get_teamFullName());
+			
+			out.print(teamStats.get_L());		
 			out.print("<tr class='tabb-teams'>");
 			out.print("<td class ='-yourTeams-table'>"+ b.get_teamFullName() +"</td>");
 			
 			out.print("<td>"+ b.get_teamDivision() +"</td>");
 			out.print("<td>"+ b.get_teamConference() +"</td>");
 			out.print("<td><a class = 'delete-team' id="+"'"+ b.get_teamFullName() +"'"+"><i class='fa fa-times-circle-o' aria-hidden='true'></i></a></td>");
-			
-			
-			//out.print("<td class= 'btnPlace'>  </td>");
 			out.print("</tr>");
+			out.print("<tr><td id='panel'><div>hello</div></td></tr>");
 		}
 	
+	 	
 	%>
 	</table>
+	</div>
   
   <h3>Playing Teams</h3>
 	<table class= "team-table">
@@ -119,6 +124,7 @@
 			out.print("<td>"+ b.get_teamSeason() +"</td>");
 			out.print("<td class= 'btnPlace'>  </td>");
 			out.print("</tr>");
+			
 		}
 	
 	%>
@@ -132,6 +138,7 @@
 <!-- End Document
   €“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“ -->
    <script src = "js/client.js"></script>
+   <script src= "js/jqueryFunct.js"></script>
 </body>
 
 </html>

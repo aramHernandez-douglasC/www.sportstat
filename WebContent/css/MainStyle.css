@@ -4,3 +4,9 @@
 	background-color: #ddd;
 }
 
+
+#panel {
+  padding: 50px;
+  display: none;
+}
+
