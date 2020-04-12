@@ -126,7 +126,7 @@ public class PlayerDAO extends DatabaseHelper {
 			
 			while(resultSet.next()) {
 				Player player = new Player(resultSet.getInt("_playerId"), resultSet.getString("_playerFirstName"), resultSet.getString("_playerLastName"),
-						 resultSet.getString("_playerPosition"),resultSet.getString(" _playerHeight"),resultSet.getString(" _playerWeight"), resultSet.getString("_playerDob"), 
+						 resultSet.getString("_playerPosition"),resultSet.getString("_playerHeight"),resultSet.getString("_playerWeight"), resultSet.getString("_playerDob"), 
 						 resultSet.getInt("_playerAge"), resultSet.getString("_teamName"), resultSet.getInt("_playerNumber"));
 			
 				allPlayers.add(player);

@@ -4,21 +4,23 @@
 <%@ page import = "com.project.Entity.*" %>
 <%@ page import = "com.project.Boundary.*"  %>
  <%
- 	/* ArrayList<Player> allPlayers = new ArrayList<Player>(); */
+ 
  	ArrayList<Team> allTeams = new ArrayList<Team>();
- 	
  	ArrayList<Team> yourTeams = new ArrayList<Team>();
- 	Stats teamStats = new Stats();
- 	/* ArrayList<Stadium> allStadiums = new ArrayList<Stadium>();
- 	ArrayList<TacticsCoach> allCoach = new ArrayList<TacticsCoach>(); */
+ 	ArrayList<Player> players = new ArrayList<Player>();
+ 	ArrayList<Schedule> allSchedule = new ArrayList<Schedule>();
  	
-	/* PlayerDAO bdao = new PlayerDAO();*/
-	/* CoachDAO cdao = new CoachDAO();
-	StadiumDAO sdao = new StadiumDAO(); */
+ 	Stats teamStats = new Stats();
+ 	
+	
 	TeamDAO tdao = new TeamDAO();
 	StatsDAO sdao = new StatsDAO();
-	/* allPlayers = bdao.displayPlayer(); */
+	PlayerDAO pdao = new PlayerDAO();
+	
+	
+	players = pdao.displayPlayer(); 
 	allTeams = tdao.displayTeam();
+	allSchedule = tdao.scheduleTeams();
 	
 	/* allStadiums = sdao.displayStadium();
 	allCoach = cdao.displayStadium(); */
@@ -52,6 +54,10 @@
   <link rel="stylesheet" href="css/skeleton.css">
   <link rel="stylesheet" href="css/MainStyle.css">
   
+  <!-- BOOTSTRAP
+   -->
+   
+   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://kit.fontawesome.com/83ce4287de.js" crossorigin="anonymous"></script>
   
@@ -61,6 +67,47 @@
   	<a href = "sample.jsp">Home</a>
   	<a href = "LogoutPage.jsp">Log Out</a>
   	<a href = "MyAccount.jsp" style=>Hello <% out.print(sessUser); %> </a>
+  </div>
+  
+  <div class = "schedule-banner">
+  	<h1> Upcoming Schedule </h1>
+  </div>
+  <div id="container" class = "carousel slide">
+  	<div class="carousel">
+  		<div class="slider">
+  		<% 
+  			for (Schedule x : allSchedule){
+  				out.print("<div class = 'item'>");
+  				out.print("<table>");
+  				out.print("<tr>");
+  				out.print("<th>HOME</th>");
+  				out.print("<th> </th>");
+  				out.print("<th>VISITOR</th>");
+  				out.print("</tr>");
+  				out.print("<tr>");
+  				out.print("<td>"+x.get_homeTeam() +"</td>");
+  				out.print("<th> VS </th>");
+  				out.print("<td>"+x.get_visitorTeam() +"</td>");
+  				out.print("</tr>");
+  				out.print("<tr> ");
+  				out.print("<td>DAY: "+ x.get_day() +"\t AT:"+x.get_time() + "</td>");
+  				out.print(" </tr>");
+  				out.print("<tr>");
+  				out.print("<td> Stadium: "+x.get_stadium() +"</td>");
+  				out.print(" </tr>");
+  				out.print("</table> ");     
+  				out.print("</div>");
+  				
+  			}
+  		%>
+  		</div>
+  	</div>
+  	<div class = "carousel-controls">
+  		<span class="arrow prev"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
+  		<span class="arrow next"><i class="fa fa-chevron-right" aria-hidden="true"></i></span>
+  		
+  	</div>
+  	
   </div>
   
    <h3>Your Teams</h3>
@@ -92,7 +139,7 @@
 			out.print("</tr>");
 			out.print("<tr><td class='panel'><div style='overflow-x:auto'>"+
 			    "<table class = 'stat-table'>"+
-		        "<tr>"+
+		        "<th>Name</th>"+		
 		        "<th>GP</th>"+
 		        "<th>W</th>"+
 		        "<th>L</th>"+
@@ -114,7 +161,9 @@
 		        "<th>PFD</th>"+
 		        "<th>+/-</th>"+
 		      "</tr>");
-		   out.print("<tr>"+
+			for (Player p : players){
+				out.print("<tr>"+
+			      	"<td>" + p.get_playerFirstName()+" "+ p.get_playerLastName()+"</td>" + 	
 			        "<td>"+teamStats.get_GP()+"</td>"+
 			        "<td>"+teamStats.get_W()+"</td>"+
 			        "<td>"+teamStats.get_L()+"</td>"+
@@ -136,6 +185,31 @@
 			        "<td>"+teamStats.get_PFD()+"</td>"+
 			        "<td>"+teamStats.get_MoreLess()+"</td>"+
 			      "</tr>");     
+			}
+			
+			out.print("<tr>"+
+			      	"<th> TOTAL: </td>" + 	
+			        "<td>"+teamStats.get_GP()+"</td>"+
+			        "<td>"+teamStats.get_W()+"</td>"+
+			        "<td>"+teamStats.get_L()+"</td>"+
+			        "<td>"+teamStats.get_WIN()+"</td>"+
+			        "<td>"+teamStats.get_MIN()+"</td>"+
+			        "<td>"+teamStats.get_PTS()+"</td>"+
+			        "<td>"+teamStats.get_FGM()+"</td>"+
+			        "<td>"+teamStats.get_FGA()+"</td>"+
+			        "<td>"+teamStats.get_FG()+"</td>"+
+			        "<td>"+teamStats.get_OREB()+"</td>"+
+			        "<td>"+teamStats.get_DREB()+"</td>"+
+			        "<td>"+teamStats.get_REB()+"</td>"+
+			        "<td>"+teamStats.get_AST()+"</td>"+
+			        "<td>"+teamStats.get_TOV()+"</td>"+
+			        "<td>"+teamStats.get_STL()+"</td>"+
+			        "<td>"+teamStats.get_BLK()+"</td>"+
+			        "<td>"+teamStats.get_BLKA()+"</td>"+
+			        "<td>"+teamStats.get_PF()+"</td>"+
+			        "<td>"+teamStats.get_PFD()+"</td>"+
+			        "<td>"+teamStats.get_MoreLess()+"</td>"+
+			      "</tr>");      
 		    out.print("</table>");
 		   out.print("</div></td></tr>");
 			
@@ -186,6 +260,8 @@
 <!-- End Document
   €“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“ -->
    <script src = "js/client.js"></script>
+   <script src = "js/vainillaAnim.js"></script>
+   
    <script src= "js/jqueryFunct.js"></script>
 </body>
 

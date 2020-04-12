@@ -1,3 +1,11 @@
+
+
+
+
+
+
+
+
 var myNodelist = document.getElementsByClassName("btnPlace");
 var teamName = document.getElementsByClassName("teamName");
 
@@ -70,21 +78,5 @@ function deleteServletCom(team){
 	  xhttp.open("POST", "http://localhost:8080/projectFinale/TrackingServlet?teamParam=" + team + "&mode=delete", true);
 	  xhttp.send();
 }
-/*
- * var toServer = myJSONObject.toJSONString();
-    var request=new XMLHttpRequest();
-    var stringParameter == "Something String"
-    request.open("POST", "http://localhost:7001/APToolbar/Main_servlet?stringParameter="+stringParameter , true);
-    request.send(toServer);
- * 
- *function loadDoc() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("demo").innerHTML = this.responseText;
-    }
-  };
-  xhttp.open("GET", "demo_get2.asp?fname=Henry&lname=Ford", true);
-  xhttp.send();
-} 
- */
+
+

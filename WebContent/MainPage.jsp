@@ -52,10 +52,8 @@
 <nav>
 	<ul>
 	<li>
-	<a> Menu </a>
     <a href = "Register.jsp"> Register Now! </a>
     <a href = "LoginPage.jsp">Sign in</a>
-    <a href = "MyAccount.jsp" style=>Hello <% out.print(sessUser); %> </a></li>
     <li>Search Teams<form action = "" method = "">
         <input type="text" name="team">
         <input type="hidden" name="action" value="search"><input type="submit" value="Search"></form></li> 

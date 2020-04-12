@@ -246,5 +246,42 @@ public class TeamDAO extends DatabaseHelper{
 		}
 		return team;
 	}
+	
+	public ArrayList<Schedule> scheduleTeams (){
+		ArrayList<Schedule> allSch = new ArrayList <Schedule>();
+		 
+		String sql = "SELECT * FROM Schedule";
+		try {
+			connectDB();
+			
+			this.prepStatement = this.connect.prepareStatement(sql);
+			this.resultSet = this.prepStatement.executeQuery();
+			
+			while(resultSet.next()) {
+				Schedule schedule = new Schedule();
+				
+				schedule.set_homeTeam(resultSet.getString("_homeTeam"));
+				schedule.set_visitorTeam(resultSet.getString("_visitorTeam"));
+				schedule.set_day(resultSet.getString("_day"));
+				schedule.set_time(resultSet.getString("_time"));
+				schedule.set_stadium(resultSet.getString("_stadium"));
+				schedule.set_homeScore(resultSet.getString("_homeScore"));
+				schedule.set_visitorScore(resultSet.getString("_visitorScore"));
+				
+				allSch.add(schedule);
+			}
+			disconnectDB();
+		}
+		catch(SQLException m) {
+			
+			System.out.println(m.getMessage());
+			System.out.println(m.getErrorCode());
+			System.out.println(m.getSQLState());
+			
+		}
+		return allSch;
+	}
+	
+	
 
 }

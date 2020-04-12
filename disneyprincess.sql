@@ -75,6 +75,26 @@ CREATE TABLE TrackList(
 	CONSTRAINT FK_UserName FOREIGN KEY (_userName)
 	REFERENCES User( _loginUser)	
 );
+
+CREATE TABLE Schedule(
+	_scheduleID INT NOT NULL AUTO_INCREMENT,
+	_homeTeam VARCHAR(50),
+	_visitorTeam VARCHAR(50),
+	_day VARCHAR(50),
+	_time  VARCHAR(50),
+	_stadium VARCHAR(50),
+	_homeScore VARCHAR(50),
+	_visitorScore VARCHAR(50),
+	PRIMARY KEY (_scheduleID),
+	CONSTRAINT FK_homeTeam FOREIGN KEY (_homeTeam)
+	REFERENCES Team(_teamFullName),
+	CONSTRAINT FK_visitorTeam FOREIGN KEY (_visitorTeam)
+	REFERENCES Team(_teamFullName),
+	CONSTRAINT FK_stadium FOREIGN KEY(_stadium)
+	REFERENCES Stadium(_stadiumName)
+	);
+	
+	
 CREATE TABLE Statistics(
 	_statsID INT NOT NULL AUTO_INCREMENT,
 	_teamID VARCHAR(50),
@@ -193,3 +213,33 @@ insert into Statistics (_teamID, _teamName, _GP, _W, _L, _WIN, _MIN, _PTS, _FGM,
 insert into Statistics (_teamID, _teamName, _GP, _W, _L, _WIN, _MIN, _PTS, _FGM, _FGA, _FG, _OREB, _DREB, _REB, _AST, _TOV, _STL, _BLK, _BLKA, _PF, _PFD, _MoreLess) values (9, 'Otter, small-clawed', 5, 4, 5, 7, 15, 8, 9, 6, 1, 3, 4, 3, 8, 8, 8, 9, 9, 10, 8, 9);
 insert into Statistics (_teamID, _teamName, _GP, _W, _L, _WIN, _MIN, _PTS, _FGM, _FGA, _FG, _OREB, _DREB, _REB, _AST, _TOV, _STL, _BLK, _BLKA, _PF, _PFD, _MoreLess) values (10, 'Langur, hanuman', 4, 4, 1, 2, 12, 3, 5, 10, 7, 9, 1, 10, 7, 10, 2, 8, 9, 4, 6, 2);
 insert into Statistics (_teamID, _teamName, _GP, _W, _L, _WIN, _MIN, _PTS, _FGM, _FGA, _FG, _OREB, _DREB, _REB, _AST, _TOV, _STL, _BLK, _BLKA, _PF, _PFD, _MoreLess) values (11, 'test', 4, 5, 1, 4, 20, 6, 9, 4, 4, 7, 8, 9, 9, 2, 10, 4, 5, 10, 3, 6);
+
+insert into Schedule (_homeTeam, _visitorTeam, _day, _time, _stadium, _homeScore, _visitorScore) values ('Drongo, fork-tailed', 'Sparrow, rufous-collared', '7/15/2019', '11:33 AM', 'O''Reilly Group', 0, 0);
+insert into Schedule (_homeTeam, _visitorTeam, _day, _time, _stadium, _homeScore, _visitorScore) values ('Cormorant, large', 'Sulfur-crested cockatoo', '7/21/2019', '6:35 PM', 'O''Reilly Group', 0, 0);
+insert into Schedule (_homeTeam, _visitorTeam, _day, _time, _stadium, _homeScore, _visitorScore) values ('Weaver, chestnut', 'Sulfur-crested cockatoo', '12/3/2019', '2:29 AM', 'Hilll-Abernathy', 0, 0); 
+insert into Schedule (_homeTeam, _visitorTeam, _day, _time, _stadium, _homeScore, _visitorScore) values ('Galapagos penguin', 'Baleen whale', '5/7/2019', '3:39 PM', 'Lakin LLC', 0, 0);
+insert into Schedule (_homeTeam, _visitorTeam, _day, _time, _stadium, _homeScore, _visitorScore) values ('Sulfur-crested cockatoo', 'Cormorant, large', '1/22/2020', '6:33 AM', 'Hilll-Abernathy', 0, 0);
+insert into Schedule (_homeTeam, _visitorTeam, _day, _time, _stadium, _homeScore, _visitorScore) values ('Baleen whale', 'Otter, small-clawed', '3/30/2020', '10:04 AM', 'Champlin LLC', 0, 0);
+insert into Schedule (_homeTeam, _visitorTeam, _day, _time, _stadium, _homeScore, _visitorScore) values ('Red-billed tropic bird', 'Sparrow, rufous-collared', '4/7/2019', '12:16 PM', 'Champlin LLC', 0, 0);
+insert into Schedule (_homeTeam, _visitorTeam, _day, _time, _stadium, _homeScore, _visitorScore) values ('Otter, small-clawed', 'Galapagos penguin', '5/26/2020', '5:20 PM', 'Lakin LLC', 0, 0);
+insert into Schedule (_homeTeam, _visitorTeam, _day, _time, _stadium, _homeScore, _visitorScore) values ('Langur, hanuman', 'Drongo, fork-tailed', '5/12/2020', '8:17 PM', 'Towne-Crist', 0, 0);
+insert into Schedule (_homeTeam, _visitorTeam, _day, _time, _stadium, _homeScore, _visitorScore) values ('Drongo, fork-tailed', 'Baleen whale', '11/16/2019', '6:11 PM', 'O''Reilly Group', 0, 0);
+insert into Schedule (_homeTeam, _visitorTeam, _day, _time, _stadium, _homeScore, _visitorScore) values ('Cormorant, large', 'Red-billed tropic bird', '4/25/2020', '7:26 PM', 'Corwin-Murphy', 0, 0);
+insert into Schedule (_homeTeam, _visitorTeam, _day, _time, _stadium, _homeScore, _visitorScore) values ('Weaver, chestnut', 'Red-billed tropic bird', '2/16/2020', '11:20 PM', 'Pfannerstill-Mills', 0, 0);
+insert into Schedule (_homeTeam, _visitorTeam, _day, _time, _stadium, _homeScore, _visitorScore) values ('Sparrow, rufous-collared', 'Cormorant, large', '2/26/2020', '12:13 PM', 'Corwin-Murphy', 0, 0);
+insert into Schedule (_homeTeam, _visitorTeam, _day, _time, _stadium, _homeScore, _visitorScore) values ('Galapagos penguin', 'Cormorant, large', '5/4/2020', '9:09 AM', 'Pfannerstill-Mills', 0, 0);
+insert into Schedule (_homeTeam, _visitorTeam, _day, _time, _stadium, _homeScore, _visitorScore) values ('Sulfur-crested cockatoo', 'Langur, hanuman', '1/1/2020', '1:33 AM', 'O''Reilly Group', 0, 0);
+insert into Schedule (_homeTeam, _visitorTeam, _day, _time, _stadium, _homeScore, _visitorScore) values ('Baleen whale', 'Sparrow rufous-collared', '10/15/2019', '10:50 AM', 'Keebler Group', 0, 0);
+insert into Schedule (_homeTeam, _visitorTeam, _day, _time, _stadium, _homeScore, _visitorScore) values ('Red-billed tropic bird', 'Otter, small-clawed', '5/20/2019', '6:16 PM', 'Hilll-Abernathy', 0, 0);
+insert into Schedule (_homeTeam, _visitorTeam, _day, _time, _stadium, _homeScore, _visitorScore) values ('Otter, small-clawed', 'Baleen whale', '3/25/2020', '12:10 PM', 'Lakin LLC', 0, 0);
+insert into Schedule (_homeTeam, _visitorTeam, _day, _time, _stadium, _homeScore, _visitorScore) values ('Langur, hanuman', 'Sparrow, rufous-collared', '4/18/2020', '3:59 AM', 'Medhurst and Sons', 0, 0);
+insert into Schedule (_homeTeam, _visitorTeam, _day, _time, _stadium, _homeScore, _visitorScore) values ('Drongo, fork-tailed', 'Cormorant, large', '11/6/2019', '9:17 AM', 'Medhurst and Sons', 0, 0);
+insert into Schedule (_homeTeam, _visitorTeam, _day, _time, _stadium, _homeScore, _visitorScore) values ('Cormorant, large', 'Otter, small-clawed', '7/16/2019', '4:01 PM', 'Corwin-Murphy', 0, 0);
+insert into Schedule (_homeTeam, _visitorTeam, _day, _time, _stadium, _homeScore, _visitorScore) values ('Weaver, chestnut', 'Drongo, fork-tailed', '4/6/2020', '6:13 PM', 'Hilll Wilkinson and Mante', 0, 0);
+insert into Schedule (_homeTeam, _visitorTeam, _day, _time, _stadium, _homeScore, _visitorScore) values ('Sparrow, rufous-collared', 'Langur, hanuman', '12/14/2019', '4:39 AM', 'Keebler Group', 0, 0);
+insert into Schedule (_homeTeam, _visitorTeam, _day, _time, _stadium, _homeScore, _visitorScore) values ('Galapagos penguin', 'Baleen whale', '11/5/2019', '12:04 PM', 'Lakin LLC', 0, 0);
+insert into Schedule (_homeTeam, _visitorTeam, _day, _time, _stadium, _homeScore, _visitorScore) values ('Sulfur-crested cockatoo', 'Langur, hanuman', '5/1/2019', '11:32 PM', 'Champlin LLC', 0, 0);
+insert into Schedule (_homeTeam, _visitorTeam, _day, _time, _stadium, _homeScore, _visitorScore) values ('Baleen whale', 'Sulfur-crested cockatoo', '7/24/2019', '7:00 AM', 'Towne-Crist', 0, 0);
+insert into Schedule (_homeTeam, _visitorTeam, _day, _time, _stadium, _homeScore, _visitorScore) values ('Red-billed tropic bird', 'Drongo, fork-tailed', '3/30/2019', '7:07 PM', 'Keebler Group', 0, 0);
+insert into Schedule (_homeTeam, _visitorTeam, _day, _time, _stadium, _homeScore, _visitorScore) values ('Otter, small-clawed', 'Otter, small-clawed', '9/16/2019', '1:45 AM', 'Lakin LLC', 0, 0);
+insert into Schedule (_homeTeam, _visitorTeam, _day, _time, _stadium, _homeScore, _visitorScore) values ('Langur, hanuman', 'Baleen whale', '7/7/2019', '5:27 AM', 'Corwin-Murphy', 0, 0);
