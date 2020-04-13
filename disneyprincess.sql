@@ -127,14 +127,7 @@ CREATE TABLE Statistics(
 	REFERENCES TEAM(_teamFullName)
 );
 
-/*CREATE TABLE Orders (
-    OrderID int NOT NULL,
-    OrderNumber int NOT NULL,
-    PersonID int,
-    PRIMARY KEY (OrderID),
-    CONSTRAINT FK_PersonOrder FOREIGN KEY (PersonID)
-    REFERENCES Persons(PersonID)
-);*/
+
 
 insert into User (_fullName, _dob, _city, _province, _country, _loginUser, _loginPassword) values ('Tami Jermey', '8/17/1978', 'Stockton', 'California', 'United States', 'tjermey0', 'iWeyVltNp');
 insert into User (_fullName, _dob, _city, _province, _country, _loginUser, _loginPassword) values ('Maud Dellit', '10/28/1987', 'Oceanside', 'California', 'United States', 'mdellit1', 'ORustLsvNG0');

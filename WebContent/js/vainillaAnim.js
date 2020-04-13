@@ -31,13 +31,13 @@ else if (next.attachEvent){
 
 setInterval(function(){directionNegative()}, 5000);
 
-//Functions for carousel 
+//Functions for carousel Right
 function directionNegative(){
 	  direction = -1;
 	  carousel.style.justifyContent = 'flex-start';
 	  slider.style.transform = 'translate(-20%)'; 
 }
-
+// left
 function directionPositive(){
 	if (direction === -1) {
 	    direction = 1;

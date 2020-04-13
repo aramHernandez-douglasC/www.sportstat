@@ -21,7 +21,7 @@
 .slider{
   display: flex;
   height: 100%;
-  width: 500%;
+  width: 250%;
   flex-shrink: 0;
   transition: all 0.5s;
   color: #ddd;

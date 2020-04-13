@@ -58,7 +58,7 @@
 </head>
 <body>
 <div class="topnav">
-    <a class="active" href="sample.jsp">Home</a>
+    <a class="active" href="MainPage.jsp">Home</a>
     <a href="ScheduleView.jsp">Schedule</a>
     <a href="LoginPage.jsp">Login</a>
     <a href="Register.jsp">Register Now!</a>
@@ -141,7 +141,7 @@
 	 <%
 		for (Team b: allTeams){
 			out.print("<tr>");
-			out.print("<td>"+ b.get_teamFullName() +"</td>");
+			out.print("<td class ='teamName'>"+ b.get_teamFullName() +"</td>");
 			out.print("<td>"+ b.get_teamCity() +"</td>");
 			out.print("<td>"+ b.get_teamDivision() +"</td>");
 			out.print("<td>"+ b.get_teamCoach() +"</td>");

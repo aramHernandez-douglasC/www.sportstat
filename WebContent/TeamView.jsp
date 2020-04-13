@@ -26,6 +26,7 @@
 	
 	String sessUser = (String)session.getAttribute("userName");
 	String sessTeam = (String)session.getAttribute("team");
+	
 	team = tdao.getTeam(sessTeam);
 	allSchedule = tdao.singleSchedule(team);
 	teamStats = sdao.getStat(team.get_teamFullName());
@@ -62,7 +63,7 @@
 <body>
 <div class="topnav">
 	
-    <a class="active" href="sample.jsp">Home</a>
+    <a  href="sample.jsp">Home</a>
     <a href="ScheduleView.jsp">Schedule</a>
     
     <!-- MISSING  -->
@@ -88,10 +89,7 @@
 	    <img src = "media/logoBlack.png"></img>
 	</div>
 	
-	<div class="coach">
-	 	<h4> Coach </h4>
-	 	<p> <% team.get_teamCoach(); %></p>
-	</div>
+	
 	
 	<div class="schedule-header" style = "margin-top:5%;">
 		<h4 >Schedule</h4>

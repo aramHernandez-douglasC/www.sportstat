@@ -52,7 +52,7 @@ function addServletCom(team){
 	  //for this AJAX request to work, is NECESSARY 
 	  //that you change the /ProjectCont/Track...
 	  //for the current folder in which you are working 
-	  xhttp.open("POST", "http://localhost:8080/projectFinale/TrackingServlet?teamParam=" + team + "&mode=add", true);
+	  xhttp.open("POST", "TrackingServlet?teamParam=" + team + "&mode=add", true);
 	  xhttp.send();
 }
 
@@ -67,7 +67,8 @@ function deleteServletCom(team){
 	  //for this AJAX request to work, is NECESSARY 
 	  //that you change the /ProjectCont/Track...
 	  //for the current folder in which you are working 
-	  xhttp.open("POST", "http://localhost:8080/projectFinale/TrackingServlet?teamParam=" + team + "&mode=delete", true);
+	  
+	  xhttp.open("POST", "TrackingServlet?teamParam=" + team + "&mode=delete", true);
 	  xhttp.send();
 }
 

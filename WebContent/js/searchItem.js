@@ -3,8 +3,6 @@
  */
 
 var teamsNode = document.getElementsByClassName("teamName");
-
-
 var teamNames = [];
 
 var i;

@@ -148,7 +148,7 @@
 	
 	<%-- Iterate through the buyers write out one table row per. --%>
 	 <%
-		for (Team b: yourTeams){
+		for (Team b : yourTeams){
 		    teamStats = sdao.getStat(b.get_teamFullName());
 			
 					

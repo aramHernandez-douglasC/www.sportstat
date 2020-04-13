@@ -10,8 +10,10 @@
   display: none;
 }
 
+/* CAROUSEL */
+
 .container {
-	width: 100%;
+  width: 100%;
   margin: 20px auto;
 }
 .carousel{
@@ -58,6 +60,8 @@
 .arrow.next{
 	right:10px;
 }
+
+/* TOP NAVIGATION BAR*/
 .topnav {
   overflow: hidden;
   background-color: #171426;
@@ -151,6 +155,7 @@
 
 /* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
 
+
 /*SEARCH*/
 
 .autocomplete {
@@ -182,7 +187,7 @@
 }
 .autocomplete-active {
   /*when navigating through the items using the arrow keys:*/
-  background-color: DodgerBlue !important;
+  background-color: DodgerBlue ;
   color: #ffffff;
 }
 
