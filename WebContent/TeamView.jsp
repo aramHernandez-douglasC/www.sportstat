@@ -1,16 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import = "java.util.*" %>
+    <%@ page import = "java.util.*" %>
 <%@ page import = "com.project.Entity.*" %>
 <%@ page import = "com.project.Boundary.*"  %>
  <%
  
- 	ArrayList<Team> allTeams = new ArrayList<Team>();
- 	ArrayList<Team> yourTeams = new ArrayList<Team>();
+ 	
  	ArrayList<Player> players = new ArrayList<Player>();
  	ArrayList<Schedule> allSchedule = new ArrayList<Schedule>();
  	
  	Stats teamStats = new Stats();
+ 	Team team = new Team();
  	
 	
 	TeamDAO tdao = new TeamDAO();
@@ -18,25 +18,26 @@
 	PlayerDAO pdao = new PlayerDAO();
 	
 	
-	players = pdao.displayPlayer(); 
-	allTeams = tdao.displayTeam();
-	allSchedule = tdao.scheduleTeams();
+	players = pdao.displayPlayer(); 	
+	
 	
 	/* allStadiums = sdao.displayStadium();
 	allCoach = cdao.displayStadium(); */
 	
 	String sessUser = (String)session.getAttribute("userName");
-	yourTeams = tdao.yourTeams(sessUser);
+	String sessTeam = (String)session.getAttribute("team");
+	team = tdao.getTeam(sessTeam);
+	allSchedule = tdao.singleSchedule(team);
+	teamStats = sdao.getStat(team.get_teamFullName());
+	
+	
 %>
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<!-- Used an HTML Template/Boilerplate code to generate the formatting present in this page. -->
-<!-- Boilerplate Code Taken from http://getskeleton.com/ -->
-  <!-- Basic Page Needs
-  €“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“ -->  
-  <meta charset="ISO-8859-1">
-  <title>Main Account Page</title>
+<meta charset="ISO-8859-1">
+  <title>TeamView</title>
   <meta name="description" content="">
   <meta name="author" content="">
 
@@ -52,12 +53,8 @@
   €“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“ -->
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
-  <link rel="stylesheet" href="css/MainStyle.css">
+  <link rel="stylesheet" href="css/Schedule.css">
   
-  <!-- BOOTSTRAP
-   -->
-   
-   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://kit.fontawesome.com/83ce4287de.js" crossorigin="anonymous"></script>
   
@@ -81,80 +78,61 @@
       
     <span class= "userName">Hello <% out.print(sessUser); %></span>
   </div>
-  
-  <div id = "content">
-  
-  
-  <div class = "schedule-banner">
-  	<h1> Upcoming Schedule </h1>
-  </div>
-  <div id="container" class = "carousel slide">
-  	<div class="carousel">
-  		<div class="slider">
-  		<% 
-  			for (Schedule x : allSchedule){
-  				out.print("<div class = 'item'>");
-  				out.print("<table>");
-  				out.print("<tr>");
-  				out.print("<th>HOME</th>");
-  				out.print("<th> </th>");
-  				out.print("<th>VISITOR</th>");
-  				out.print("</tr>");
-  				out.print("<tr>");
-  				out.print("<td>"+x.get_homeTeam() +"</td>");
-  				out.print("<th> VS </th>");
-  				out.print("<td>"+x.get_visitorTeam() +"</td>");
-  				out.print("</tr>");
-  				out.print("<tr> ");
-  				out.print("<td>DAY: "+ x.get_day() +"\t AT:"+x.get_time() + "</td>");
-  				out.print(" </tr>");
-  				out.print("<tr>");
-  				out.print("<td> Stadium: "+x.get_stadium() +"</td>");
-  				out.print(" </tr>");
-  				out.print("</table> ");     
-  				out.print("</div>");
-  				
-  			}
-  		%>
+ 
+ <div id="content">
+ 
+	<h2 class="team-header"> <% out.print(team.get_teamFullName()); %> </h2>
+	
+	<div class = "team-image">
+	    <img src = "media/logoBlack.png"></img>
+	</div>
+	
+	<div class="coach">
+	 	<h4> Coach </h4>
+	 	<p> <% team.get_teamCoach(); %></p>
+	</div>
+	<div id="container" class = "carousel slide">
+	  	<div class="carousel">
+	  		<div class="slider">
+	  		<% 
+	  			for (Schedule x : allSchedule){
+	  				out.print("<div class = 'item'>");
+	  				out.print("<table>");
+	  				out.print("<tr>");
+	  				out.print("<th>HOME</th>");
+	  				out.print("<th> </th>");
+	  				out.print("<th>VISITOR</th>");
+	  				out.print("</tr>");
+	  				out.print("<tr>");
+	  				out.print("<td>"+x.get_homeTeam() +"</td>");
+	  				out.print("<th> VS </th>");
+	  				out.print("<td>"+x.get_visitorTeam() +"</td>");
+	  				out.print("</tr>");
+	  				out.print("<tr> ");
+	  				out.print("<td>DAY: "+ x.get_day() +"\t AT:"+x.get_time() + "</td>");
+	  				out.print(" </tr>");
+	  				out.print("<tr>");
+	  				out.print("<td> Stadium: "+x.get_stadium() +"</td>");
+	  				out.print(" </tr>");
+	  				out.print("</table> ");     
+	  				out.print("</div>");
+	  				
+	  			}
+	  		%>
+	  		</div>
   		</div>
-  	</div>
-  	<div class = "carousel-controls">
-  		<span class="arrow prev"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
-  		<span class="arrow next"><i class="fa fa-chevron-right" aria-hidden="true"></i></span>
-  		
-  	</div>
+	  	<div class = "carousel-controls">
+	  		<span class="arrow prev"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
+	  		<span class="arrow next"><i class="fa fa-chevron-right" aria-hidden="true"></i></span>
+	  		
+	  	</div>
   	
   </div>
   
-   <h3>Your Teams</h3>
-   
-   <div>
-	<table class= "track-table">
-	<tr>
-		<thead>
-		<th>Team FullName</th>		
-		<th>Division</th>
-		<th>Conference</th>
-		
 	
-		</thead>
-	</tr>
 	
-	<%-- Iterate through the buyers write out one table row per. --%>
-	 <%
-		for (Team b: yourTeams){
-		    teamStats = sdao.getStat(b.get_teamFullName());
-			
-					
-			out.print("<tr class='tabb-teams'>");
-			out.print("<td class ='-yourTeams-table'>"+ b.get_teamFullName() +"</td>");
-			
-			out.print("<td>"+ b.get_teamDivision() +"</td>");
-			out.print("<td>"+ b.get_teamConference() +"</td>");
-			out.print("<td><a class = 'delete-team' id="+"'"+ b.get_teamFullName() +"'"+"><i class='fa fa-times-circle-o' aria-hidden='true'></i></a></td>");
-			out.print("</tr>");
-			out.print("<tr><td class='panel'><div style='overflow-x:auto'>"+
-			    "<table class = 'stat-table'>"+
+	<div class = "seasonStats">
+	  <% out.print("<table class = 'stat-table'>"+
 		        "<th>Name</th>"+		
 		        "<th>GP</th>"+
 		        "<th>W</th>"+
@@ -227,60 +205,18 @@
 			        "<td>"+teamStats.get_MoreLess()+"</td>"+
 			      "</tr>");      
 		    out.print("</table>");
-		   out.print("</div></td></tr>");
-			
-		}
-	
-	 	
-	%>
-	</table>
-	</div>
-  
-  <h3>Playing Teams</h3>
-	<table class= "team-table">
-	<tr>
-		<thead>
-		<th>Team FullName</th>
-		<th>City</th>
-		<th>Division</th>
-		<th>Coach</th>
-		<th>Stadium</th>
-		<th>Season</th>
-	
-		</thead>
-	</tr>
-	
-	<%-- Iterate through the buyers write out one table row per. --%>
-	 <%
-		for (Team b: allTeams){
-			out.print("<tr class='tab-teams'>");
-			out.print("<td class ='teamName'>"+ b.get_teamFullName() +"</td>");
-			out.print("<td>"+ b.get_teamCity() +"</td>");
-			out.print("<td>"+ b.get_teamDivision() +"</td>");
-			out.print("<td>"+ b.get_teamCoach() +"</td>");
-			out.print("<td>"+ b.get_teamStadium() +"</td>");
-			out.print("<td>"+ b.get_teamSeason() +"</td>");
-			out.print("<td class= 'btnPlace'>  </td>");
-			out.print("</tr>");
-			
-		}
 	
 	%>
-	</table>
-	
 	</div>
-  
-  
+	<div class="players-stats">
+	    
+	</div>
+</div>
 
-  <!-- Primary Page Layout
-  €“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“ -->
-  
-<!-- End Document
-  €“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“ -->
-   <script src = "js/client.js"></script>
-   <script src = "js/vainillaAnim.js"></script>
-   
-   <script src= "js/jqueryFunct.js"></script>
+
+
+	
+<script src = "js/vainillaAnim.js"></script>
+
 </body>
-
 </html>
