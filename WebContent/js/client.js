@@ -1,11 +1,4 @@
-
-
-
-
-
-
-
-
+//INITIALIZE BUTTON
 var myNodelist = document.getElementsByClassName("btnPlace");
 var teamName = document.getElementsByClassName("teamName");
 
@@ -21,13 +14,11 @@ for (i = 0; i < myNodelist.length; i++) {
   button.className = "addBtn";
   button.appendChild(span);
   myNodelist[i].appendChild(button);
-  //console.log(i);
-  //console.log(teamName[i].innerText);
 }
 
 
 
-//adding teams btn
+//ADD TEAMS 
 var btn = document.getElementsByClassName("addBtn");
 var x;
 for (x = 0; x < btn.length; x++) {
@@ -38,7 +29,7 @@ for (x = 0; x < btn.length; x++) {
 	 
 }
 
-//deleting team icon
+//DELETE TEAM
 var del = document.getElementsByClassName("delete-team");
 var x;
 for (x = 0; x < del.length; x++) {
@@ -49,6 +40,7 @@ for (x = 0; x < del.length; x++) {
 	 
 }
 
+//AJAX REQUEST TO SERVLET
 function addServletCom(team){
 	var xhttp = new XMLHttpRequest();
 	  xhttp.onreadystatechange = function() {
@@ -78,5 +70,8 @@ function deleteServletCom(team){
 	  xhttp.open("POST", "http://localhost:8080/projectFinale/TrackingServlet?teamParam=" + team + "&mode=delete", true);
 	  xhttp.send();
 }
+
+//SEARCH BAR
+
 
 

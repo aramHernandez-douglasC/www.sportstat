@@ -71,9 +71,16 @@
     <a href="#">About</a>
     
     <img class= "logo-topnav-white"src="media/logoWhite.png" alt="Logo-white">
-    <input type="text" placeholder="Search Team..">
+    <div class="search-container">
+        <form action="SearchServlet" method = "POST">
+          <input type="text" placeholder="Search.." name="teamSearch">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
     <span class= "userName">Hello <% out.print(sessUser); %></span>
   </div>
+  
+  <div id = "content">
   
   
   <div class = "schedule-banner">
@@ -258,6 +265,8 @@
 	
 	%>
 	</table>
+	
+	</div>
   
   
 

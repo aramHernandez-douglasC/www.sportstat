@@ -16,7 +16,7 @@
 	
 	allSchedule = tdao.scheduleTeams();
 	
-	
+	String sessUser = (String)session.getAttribute("userName");
 	
 	
 	
@@ -58,8 +58,15 @@
     <a href="MyAccount.jsp">My Account</a>
     <a href="#">About</a>
     <img class= "logo-topnav-white"src="media/logoBlack.png" alt="Logo-black">
-    <span class= "userName">Hello lala</span>
-  </div>
+    <div class="search-container">
+        <form action="/action_page.php">
+          <input type="text" placeholder="Search.." name="search">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+    <span class= "userName">Hello <% out.print(sessUser); %> </span>
+ </div>
+ 
 <h3> Next on schedule: </h3>
 
 <table>

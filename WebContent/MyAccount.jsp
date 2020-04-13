@@ -48,14 +48,20 @@ String sessUser = (String)session.getAttribute("userName");
     <a href="#">About</a>
     
     <img class= "logo-topnav-white"src="media/logoWhite.png" alt="Logo-white">
-    <input type="text" placeholder="Search Team..">
+    <div class="search-container">
+        <form action="/action_page.php">
+          <input type="text" placeholder="Search.." name="search">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
     <span class= "userName">Hello <% out.print(sessUser); %></span>
  </div>
-  
+
  <h2 style='text-align:center;'>My Account</h2>
  <h4>Hello <% out.print(sessUser); %></h4>
  
 </header> 
+<div id = "content">  
  <button class="accordion">Change Username</button>
 <div class="panel">
     <table class = "container">
@@ -151,6 +157,7 @@ String sessUser = (String)session.getAttribute("userName");
 
 
 <button class="accordion">Sign out</button>
+</div>
 
 <script>
     webshims.setOptions('forms-ext', {types: 'date'});
