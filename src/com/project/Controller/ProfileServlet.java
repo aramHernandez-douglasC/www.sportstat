@@ -44,7 +44,7 @@ public class ProfileServlet extends HttpServlet {
 		
 		HttpSession ses = request.getSession();			
 		String user = ses.getAttribute("userName").toString();
-		
+		us = udao.getUser(user);
 		
 		
 		
@@ -58,9 +58,13 @@ public class ProfileServlet extends HttpServlet {
 			
 			if(!newUserName.equals("") || !repeat.equals("") ) {
 				if (newUserName.equals(repeat)) {
-					udao.updateUserName(user, newUserName);
+					udao.updateUserName(user, newUserName);	
+					
+					us = udao.getUser(newUserName);
+					
+					udao.updateTrackList(us, user);
+					
 					ses.removeAttribute("userName");
-					us = udao.getUser(user);
 					ses.setAttribute("userName", newUserName);
 					response.sendRedirect("MyAccount.jsp");
 					

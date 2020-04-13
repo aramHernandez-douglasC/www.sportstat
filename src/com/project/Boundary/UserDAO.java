@@ -214,9 +214,7 @@ public void updateUserName( String userName, String userNew) {
 			// Create the prepared statements
 			this.prepStatement = this.connect.prepareStatement(sql);
 
-			// Execute the statement
-			this.prepStatement.executeUpdate();
-
+			
 			// Set the parameters
 			
 			this.prepStatement.setString(1, userNew);
@@ -344,9 +342,40 @@ public void checkLogin(User loginToken)
 		}
 		
 	}
+public void updateTrackList(User u, String oldUser) {
+	//
+	String query = "UPDATE Tracklist SET _userName=? , _userID= ? WHERE _userName = ?;";
+	
+	String userName = u.get_loginUser();
+	int userID = u.get_userID();
+	
+	try {
+		connectDB();
+
+		this.prepStatement = this.connect.prepareStatement(query);
+
+		this.prepStatement.setString(1, userName);
+		this.prepStatement.setInt(2, userID);
+		this.prepStatement.setString(3, oldUser);
+	
+	
+		
+		
+
+		this.prepStatement.execute();
+
+		System.out.println("User: " + userName +" on Tracklist Updated ");
+		disconnectDB();
+
+	} catch (SQLException m) {
+		System.out.println("Error on TrackList User...");
+		System.out.println(m.getMessage());
+		System.out.println(m.getErrorCode());
+		System.out.println(m.getSQLState());
+	}
+}
 public void trackTeam(User u, Team t) {
-	//insert into TrackList (_teamName, _userID,_userName) 
-	//values (11,"test",21,"p");
+	//
 	String query = "insert into TrackList (_teamID, _teamName, _userID,_userName)"
 			+ "values (?,?,?,?);";
 	
