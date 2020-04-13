@@ -132,7 +132,7 @@
   	
   </div>
   
-   <h3>Your Teams</h3>
+   <h2>Your Teams</h2>
    
    <div>
 	<table class= "track-table">

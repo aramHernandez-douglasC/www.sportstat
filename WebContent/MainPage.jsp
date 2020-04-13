@@ -156,7 +156,11 @@
 </div> 
  </div>
   
-	
+	<script src = "js/client.js"></script>
+   <script src = "js/vainillaAnim.js"></script>
+   
+   <script src= "js/jqueryFunct.js"></script>
+   <script src= "js/searchItem.js"></script>
 
 	<!-- Missing handler -->
 </body>

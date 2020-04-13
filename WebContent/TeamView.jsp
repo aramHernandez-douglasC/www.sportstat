@@ -61,9 +61,10 @@
 </head>
 <body>
 <div class="topnav">
+	
     <a class="active" href="sample.jsp">Home</a>
     <a href="ScheduleView.jsp">Schedule</a>
-    <a href="MyAccount.jsp">My Account</a>
+    
     <!-- MISSING  -->
     <a href="#">About</a>
     
@@ -79,9 +80,9 @@
     <span class= "userName">Hello <% out.print(sessUser); %></span>
   </div>
  
- <div id="content">
+ <div id="content" style = "margin-top:5%;">
  
-	<h2 class="team-header"> <% out.print(team.get_teamFullName()); %> </h2>
+	<h2 style = "text-align:center;"> <% out.print(team.get_teamFullName()); %> </h2>
 	
 	<div class = "team-image">
 	    <img src = "media/logoBlack.png"></img>
@@ -91,6 +92,11 @@
 	 	<h4> Coach </h4>
 	 	<p> <% team.get_teamCoach(); %></p>
 	</div>
+	
+	<div class="schedule-header" style = "margin-top:5%;">
+		<h4 >Schedule</h4>
+	</div>
+	
 	<div id="container" class = "carousel slide">
 	  	<div class="carousel">
 	  		<div class="slider">
@@ -131,9 +137,10 @@
   
 	
 	
-	<div class = "seasonStats">
+	<div class = "seasonStats" style = "margin-top:5%;">
+		<h4> Players </h4>
 	  <% out.print("<table class = 'stat-table'>"+
-		        "<th>Name</th>"+		
+		        "<th>Player Name</th>"+		
 		        "<th>GP</th>"+
 		        "<th>W</th>"+
 		        "<th>L</th>"+
