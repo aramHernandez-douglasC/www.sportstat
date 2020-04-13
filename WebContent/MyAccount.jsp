@@ -33,7 +33,9 @@ String sessUser = (String)session.getAttribute("userName");
   <link rel="stylesheet" href="css/MainStyle.css">
   
   <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script> 
-  <script src="//cdn.jsdelivr.net/webshim/1.14.5/polyfiller.js"></script> 
+  <script src="//cdn.jsdelivr.net/webshim/1.14.5/polyfiller.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://kit.fontawesome.com/83ce4287de.js" crossorigin="anonymous"></script> 
 </head>
 <body>
 

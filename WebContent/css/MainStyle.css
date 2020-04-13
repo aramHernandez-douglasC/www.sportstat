@@ -68,7 +68,7 @@
 }
 
 #content{	
-	margin-top: 10%;
+	margin-top: 5%;
 }
 
 
@@ -214,3 +214,14 @@
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/*TEAM TABLE*/
+
+.team-table{
+    margin-left: 20%;
+    margin-right: auto;
+    float: left;
+    display: block;
+}
+.schedule-banner{
+	text-align: center;
+}

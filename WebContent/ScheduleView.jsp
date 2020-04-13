@@ -26,6 +26,7 @@
 	// String sDate1="31/12/1998";  
     //Date date1=new SimpleDateFormat("dd/MM/yyyy").parse(sDate1);  
 	
+    String homeLink = "sample.jsp";
 	
 %>
 <!DOCTYPE html>
@@ -50,21 +51,27 @@
   <link rel="stylesheet" href="css/skeleton.css">
   <link rel="stylesheet" href="css/Schedule.css">
   
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://kit.fontawesome.com/83ce4287de.js" crossorigin="anonymous"></script>
+  
 </head>
 <body>
 <div class="topnav">
-    <a href="sample.jsp">Home</a>
+	<% if(session.getAttribute("userName") == null){
+		homeLink = "MainPage.jsp";
+		}
+	%>
+    <a href= <% out.print(homeLink); %> >Home</a>
     <a class="active" href="ScheduleView.jsp">Schedule</a>
-    <a href="MyAccount.jsp">My Account</a>
     <a href="#">About</a>
-    <img class= "logo-topnav-white"src="media/logoBlack.png" alt="Logo-black">
+    <img class= "logo-topnav-white"src="media/logoWhite.png" alt="Logo-black">
     <div class="search-container">
         <form action="/action_page.php">
           <input type="text" placeholder="Search.." name="search">
           <button type="submit"><i class="fa fa-search"></i></button>
         </form>
       </div>
-    <span class= "userName">Hello <% out.print(sessUser); %> </span>
+    
  </div>
  
 <h3> Next on schedule: </h3>
