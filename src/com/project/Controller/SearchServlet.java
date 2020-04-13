@@ -2,6 +2,8 @@ package com.project.Controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -41,15 +43,18 @@ public class SearchServlet extends HttpServlet {
 		
 		String team = request.getParameter("teamSearch");
 		HttpSession session = request.getSession(true);
+		String page =  "ErrorTeam.jsp";
+		
 		
 		for(Team b : allTeams) {
 			if(b.get_teamFullName().toLowerCase().equals(team.toLowerCase())) {
 				session.setAttribute("team", b.get_teamFullName());
-				response.sendRedirect("TeamView.jsp");
-				 
+				page = "TeamView.jsp";			 
 			}
 			
+			
 		}
+		response.sendRedirect(page);
 		
 		
 	}

@@ -70,16 +70,22 @@
     <!-- MISSING  -->
     <a href="#">About</a>
     
+    
     <img class= "logo-topnav-white"src="media/logoWhite.png" alt="Logo-white">
     
+     <span class= "userName">Hello <% out.print(sessUser); %></span>
     <div class="search-container">
         <form action='SearchServlet' method = 'get'>
-          <input type="text" placeholder="Search.." name="teamSearch">
-          <button type="submit"><i class="fa fa-search"></i></button>
+	       <div class="autocomplete">
+	          <input id="myInput" autocomplete="off"  type="text" placeholder="Search.." name="teamSearch">
+	        </div>
+	         <button type="submit"><i class="fa fa-search"></i></button>
         </form>
+        
       </div>
+      <div class="search-items"></div>
       
-    <span class= "userName">Hello <% out.print(sessUser); %></span>
+   
   </div>
   
   <div id = "content">
@@ -281,6 +287,7 @@
    <script src = "js/vainillaAnim.js"></script>
    
    <script src= "js/jqueryFunct.js"></script>
+   <script src= "js/searchItem.js"></script>
 </body>
 
 </html>

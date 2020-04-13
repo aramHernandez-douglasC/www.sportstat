@@ -2,8 +2,7 @@
 var myNodelist = document.getElementsByClassName("btnPlace");
 var teamName = document.getElementsByClassName("teamName");
 
-console.log(myNodelist);
-console.log(teamName);
+
 
 var i;
 for (i = 0; i < myNodelist.length; i++) {
@@ -14,6 +13,7 @@ for (i = 0; i < myNodelist.length; i++) {
   button.className = "addBtn";
   button.appendChild(span);
   myNodelist[i].appendChild(button);
+ 
 }
 
 

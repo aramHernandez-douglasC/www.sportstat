@@ -31,7 +31,7 @@
 .slider{
   display: flex;
   height: 100%;
-  width: 500%;
+  width: 250%;
   flex-shrink: 0;
   transition: all 0.5s;
   color: #ddd;
@@ -61,21 +61,15 @@
 .topnav {
   overflow: hidden;
   background-color: #171426;
-  position: fixed;
   top: 0;
   width: 100%;
   
     
 }
 
-#content{
-	
-	margin-top: 5%;
+#content{	
+	margin-top: 10%;
 }
-
-
-
-
 
 
 .topnav img{
@@ -100,15 +94,18 @@
   position: relative;
 }
 .topnav span{
+	
   float: right;
   display: block;
   color: #ffffff;
-  text-align: center;
-  padding: 14px 16px;
+  text-align: center;  
   text-decoration: none;
+  margin-top:8px;
+  margin-right:10px;
   font-size: 17px;
-  position:relative;
+  
   cursor: pointer;
+  
     
 }
 
@@ -128,9 +125,10 @@
   float: right;
 }
 
+
 .topnav input[type=text] {
   padding: 6px;
-  margin-top: 8px;
+  margin-top: 0px;
   font-size: 17px;
   border: none;
 }
@@ -138,7 +136,7 @@
 .topnav .search-container button {
   float: right;
   padding: 6px 10px;
-  margin-top: 8px;
+  margin-top: 0px;
   margin-right: 16px;
   background: #ddd;
   font-size: 17px;
@@ -152,40 +150,33 @@
 
 
 /* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
-@media screen and (max-width: 600px) {
- .topnav .search-container {
-    float: none;
-  }
-  .topnav a, .topnav input[type=text], .topnav .search-container button {
-    float: none;
-    display: block;
-    text-align: left;
-    width: 100%;
-    margin: 0;
-    padding: 14px;
-  }
-  .topnav input[type=text] {
-    border: 1px solid #ccc;  
-  }
-  
-  .topnav .seach-container .seach-items {
+
+/*SEARCH*/
+
+.autocomplete {
+  /*the container must be positioned relative:*/
+  position: relative;
+  display: inline-block;
+}
+
+.autocomplete-items {
   position: absolute;
   border: 1px solid #d4d4d4;
   border-bottom: none;
   border-top: none;
   z-index: 99;
   /*position the autocomplete items to be the same width as the container:*/
-  top: 100%;
+  top: 75%;
   left: 0;
   right: 0;
 }
-.topnav .seach-container .seach-items div {
-  padding: 10px;
+.autocomplete-items div {
+  padding: 5px;
   cursor: pointer;
   background-color: #fff;
   border-bottom: 1px solid #d4d4d4;
 }
-.topnav .seach-container .seach-items div:hover {
+.autocomplete-items div:hover {
   /*when hovering an item:*/
   background-color: #e9e9e9;
 }
@@ -194,6 +185,32 @@
   background-color: DodgerBlue !important;
   color: #ffffff;
 }
-}
 
+/*ERROR STYLE*/
+#content-error{
+    width: 500px;
+    height: 500px;
+    margin-left: 30%;
+    margin-right: auto;
+    float: left;
+    display: block;
+    background-color: #ffffff;
+}
+#content-error img{
+    position: relative;
+    margin-left: 25%;
+    justify-content: center;
+    width: 200px;
+    height: 200px;
+}
+#content-error h2, h3{
+    position: relative;
+    text-align: center;
+}
+#content-error h2{
+    font-family: monospace;
+}
+#content-error h3{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
