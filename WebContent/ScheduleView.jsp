@@ -48,11 +48,18 @@
   €“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“ -->
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/Schedule.css">
+  
 </head>
 <body>
-<div>
-  	<a href = "sample.jsp">Home</a>  	
-</div>
+<div class="topnav">
+    <a href="sample.jsp">Home</a>
+    <a class="active" href="ScheduleView.jsp">Schedule</a>
+    <a href="MyAccount.jsp">My Account</a>
+    <a href="#">About</a>
+    <img class= "logo-topnav-white"src="media/logoBlack.png" alt="Logo-black">
+    <span class= "userName">Hello lala</span>
+  </div>
 <h3> Next on schedule: </h3>
 
 <table>

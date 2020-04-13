@@ -30,25 +30,31 @@ String sessUser = (String)session.getAttribute("userName");
   €“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“ -->
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/MainStyle.css">
+  
   <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script> 
   <script src="//cdn.jsdelivr.net/webshim/1.14.5/polyfiller.js"></script> 
 </head>
 <body>
 
 <header>
-<nav>
-<ul>
-<li><div>
-  	<a href = "MainPage.jsp">Home</a>
-  	<a href = "Register.jsp">Register</a>
-  	<a href = "LoginPage.jsp">Log In</a>
-  	<a href = "LogoutPage.jsp">Log Out</a>
+
+
+<div class="topnav">
+    <a  href="sample.jsp">Home</a>
+    <a href="ScheduleView.jsp">Schedule</a>
+    <a class="active" href="MyAccount.jsp">My Account</a>
+    <!-- MISSING  -->
+    <a href="#">About</a>
+    
+    <img class= "logo-topnav-white"src="media/logoWhite.png" alt="Logo-white">
+    <input type="text" placeholder="Search Team..">
+    <span class= "userName">Hello <% out.print(sessUser); %></span>
  </div>
+  
  <h2 style='text-align:center;'>My Account</h2>
  <h4>Hello <% out.print(sessUser); %></h4>
- </li>
-</ul>
-</nav>
+ 
 </header> 
  <button class="accordion">Change Username</button>
 <div class="panel">

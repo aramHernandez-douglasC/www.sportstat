@@ -63,11 +63,18 @@
   
 </head>
 <body>
-  <div>
-  	<a href = "sample.jsp">Home</a>
-  	<a href = "LogoutPage.jsp">Log Out</a>
-  	<a href = "MyAccount.jsp" style=>Hello <% out.print(sessUser); %> </a>
+<div class="topnav">
+    <a class="active" href="sample.jsp">Home</a>
+    <a href="ScheduleView.jsp">Schedule</a>
+    <a href="MyAccount.jsp">My Account</a>
+    <!-- MISSING  -->
+    <a href="#">About</a>
+    
+    <img class= "logo-topnav-white"src="media/logoWhite.png" alt="Logo-white">
+    <input type="text" placeholder="Search Team..">
+    <span class= "userName">Hello <% out.print(sessUser); %></span>
   </div>
+  
   
   <div class = "schedule-banner">
   	<h1> Upcoming Schedule </h1>
