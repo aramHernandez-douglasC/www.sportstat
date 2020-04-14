@@ -109,6 +109,8 @@ public class TeamDAO extends DatabaseHelper{
 			System.out.println(m.getSQLState());
 		}
 	}
+	
+	//TESTED
 	public ArrayList<Team> displayTeam(){
 		ArrayList<Team> allTeams = new ArrayList <Team>();
 		
