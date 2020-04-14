@@ -24,22 +24,18 @@
   €“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“ -->
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/MainStyle.css">
   
 </head>
 <body> 
-<header>
-	<nav>
-		<ul>
-			<li>
-			<div class = "container">			
-			<a href = "MainPage.jsp">Home</a>
-  			<a href = "Register.jsp">Register</a>
-  			</div>
-  			</li>
-		</ul>
-	</nav>
-</header>   
-  <br><h1 class = "container">Login</h1>
+<div class="topnav">
+    <a class="active" href="MainPage.jsp">Home</a>
+    <a href="Register.jsp">Register Now!</a>
+  </div> 
+  <br>
+  <div class = "login">
+  <img alt="Logo Dark" src="media/logoBlack.png">
+  <h1 class = "container">Login</h1>
   <table class = "container" align ="center">
   	<form action = "LoginServlet" method = "post" class = "row">
   		<tr>
@@ -55,6 +51,7 @@
   		</tr>
   	</form>
   </table>
+  </div>
 
 <!-- End Document
   €“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“€“ -->

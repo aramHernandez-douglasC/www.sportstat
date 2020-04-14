@@ -86,6 +86,7 @@
   width: 250px;
   font-size: 18px;
 }
+
 /* Style the links inside the navigation bar */
 .topnav a {
   float: left;
@@ -229,4 +230,25 @@
 }
 .schedule-banner{
 	text-align: center;
+}
+.login{
+
+	text-align: center;
+	width: 500px;
+    height: 500px;
+    margin-left: 30%;
+    margin-right: auto;
+    float: left;
+    display: block;
+    background-color: #ffffff;
+	
+}
+
+.login img{
+	width: 150px;
+	length: 150px;
+}
+.login h1{
+	font-size: 30px;
+	 font-weight: bold;
 }

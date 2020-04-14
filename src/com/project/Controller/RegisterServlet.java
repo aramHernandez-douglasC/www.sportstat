@@ -67,7 +67,7 @@ public class RegisterServlet extends HttpServlet{
 		uDao.addInfo(genUser);
 		}
 		
-		response.sendRedirect("MainPage.jsp");
+		response.sendRedirect("LoginPage.jsp");
 	}
 
 }

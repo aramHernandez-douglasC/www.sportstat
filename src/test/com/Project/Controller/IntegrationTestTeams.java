@@ -59,7 +59,7 @@ class IntegrationTestTeams {
 		
 		team = tdao.getTeam("Drongo, fork-tailed");
 	    udao.untrackTeam(user, team);
-	    boolean b = true;
+	    
 	    trackTeams = tdao.yourTeams(user.get_loginUser());
 	    
 		Assert.assertTrue(trackTeams.isEmpty());;

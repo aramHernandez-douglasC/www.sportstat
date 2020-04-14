@@ -46,24 +46,16 @@ String sessUser = (String)session.getAttribute("userName");
     <a  href="sample.jsp">Home</a>
     <a href="ScheduleView.jsp">Schedule</a>
     <a class="active" href="MyAccount.jsp">My Account</a>
-    <!-- MISSING  -->
-    <a href="#">About</a>
-    
+        
     <img class= "logo-topnav-white"src="media/logoWhite.png" alt="Logo-white">
-    <div class="search-container">
-        <form action="/action_page.php">
-          <input type="text" placeholder="Search.." name="search">
-          <button type="submit"><i class="fa fa-search"></i></button>
-        </form>
-      </div>
-    <span class= "userName">Hello <% out.print(sessUser); %></span>
+    
  </div>
 
- <h2 style='text-align:center;'>My Account</h2>
- <h4>Hello <% out.print(sessUser); %></h4>
+ <h2>My Account</h2>
+ <h4 style='text-align:center;'>Hello <% out.print(sessUser); %></h4>
  
 </header> 
-<div id = "content">  
+<div class="login">  
  <button class="accordion">Change Username</button>
 <div class="panel">
     <table class = "container">
@@ -111,56 +103,59 @@ String sessUser = (String)session.getAttribute("userName");
         </form>
     </table>
 </div>
-<button class="accordion">Update Location</button>
-<div class="panel">
-    <table class = "container">
-        <form action = "ProfileServlet" method = "post" class = "row">
-            <tr>
-                <td>Country</td>
-                <td><input name = "country" type = "text"> </td>
-            </tr>
-            <tr>
-                <td>Province/State</td>
-                <td><input name = "province" type = "text"></td>
-            </tr>
-            <tr>
-                <td>City</td>
-                <td><input name = "city" type = "text"></td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="hidden" name="action" value="location">
-                    <input type = "submit" value = "Update">
-                </td>
-            </tr>
-        </form>
-    </table>
+
+<button id = "delete-acct" class="accordion" value="delete">Delete Account</button><br>
+
+
+<button id ="signout" class="accordion">Sign out</button>
 </div>
-<button class="accordion">Update Birthday</button>
-<div class="panel">
-    <table class = "container" >
-        <form action = "ProfileServlet" method = "post" class = "row">
-            <tr>
-                <td>Date of Birth</td>
-                
-                <td><input id="datePick" name = "dob" type = "date"> </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="hidden" name="action" value="dob">
-                    <input type = "submit" value = "Update">
-                </td>
-            </tr>
-        </form>
-    </table>
-</div>
+<script>
+	
+	var deletebtn = document.getElementById("delete-acct");
 
-<button class="accordion">Delete Account</button><br>
-
-
-<button class="accordion">Sign out</button>
-</div>
-
+	var signout = document.getElementById("signout");
+	
+	
+	
+	deletebtn.onclick = function(){
+		deleteA();
+	}
+	
+	signout.onclick = function(){
+		validate()
+	}
+	
+	function deleteA() {
+		 
+		  var r = confirm("Your account will be DELETED. Do you want to continue?");
+		  if (r == true) {
+			  AJAXrequest("delete");
+		  } else {
+		   	 alert("Thank you!");
+		  }
+		  
+	}
+	function validate() {
+		 
+		  var r = confirm("Do you want to end your session?");
+		  if (r == true) {
+			  AJAXrequest("signout");
+		  } else {
+		   	 
+		  }
+		  
+	}
+	function AJAXrequest(action){
+		 var xhttp = new XMLHttpRequest();
+		  xhttp.onreadystatechange = function() {
+		    if (this.readyState == 4 && this.status == 200) {	       
+		    	window.location = "MainPage.jsp"
+		     }
+		  };		  
+		  xhttp.open("POST", "ProfileServlet?action="+action, true);
+		  xhttp.send();
+	}
+</script>
 <script>
     webshims.setOptions('forms-ext', {types: 'date'});
     webshims.polyfill('forms forms-ext');

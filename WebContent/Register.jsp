@@ -26,22 +26,25 @@
   <link rel="stylesheet" href="css/skeleton.css">
 <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script> 
 <script src="//cdn.jsdelivr.net/webshim/1.14.5/polyfiller.js"></script>  
+  <link rel="stylesheet" href="css/MainStyle.css">
+
   
   
 </head>
 <body>
-<header>
-	<nav>
-		<div class = "container">
-  		<a href = "MainPage.jsp">Home</a>
-  		<a href = "Register.jsp">Register</a>
-  		<a href = "LoginPage.jsp">Log In</a>
-  		<a href = "LogoutPage.jsp">Log Out</a>
-  		</div>
-  <br><h1 class = "container">Register</h1>
-	</nav>
-</header>
- 
+<div class="topnav">
+    <a href="MainPage.jsp">Home</a>
+    <!-- MISSING  -->
+    
+    
+    <img class= "logo-topnav-white"src="media/logoWhite.png" alt="Logo-white">
+    
+    
+      
+   
+  </div>
+ <div class="login">
+  <h2>Register</h2>
   <table class = "container">
   	<form action = "RegisterServlet" method = "post" class = "container">
   		<tr>
@@ -78,6 +81,7 @@
   		</tr>
   	</form>
   </table>
+  <div id = "content">
   
 <script>
 webshims.setOptions('forms-ext', {types: 'date'});

@@ -62,8 +62,6 @@
     <a href="ScheduleView.jsp">Schedule</a>
     <a href="LoginPage.jsp">Login</a>
     <a href="Register.jsp">Register Now!</a>
-    <!-- MISSING  -->
-    <a href="#">About</a>
     
     
     <img class= "logo-topnav-white"src="media/logoWhite.png" alt="Logo-white">

@@ -66,9 +66,7 @@
     <a  href="sample.jsp">Home</a>
     <a href="ScheduleView.jsp">Schedule</a>
     
-    <!-- MISSING  -->
-    <a href="#">About</a>
-    
+        
     <img class= "logo-topnav-white"src="media/logoWhite.png" alt="Logo-white">
     
     <div class="search-container">

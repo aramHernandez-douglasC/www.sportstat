@@ -1,6 +1,8 @@
 package com.project.Controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import static java.lang.System.out;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -42,10 +44,14 @@ public class ProfileServlet extends HttpServlet {
 		UserDAO udao = new UserDAO();
 		User us = new User();
 		
+		response.setContentType("text/html");
+	    PrintWriter out = response.getWriter();
+
+		
 		HttpSession ses = request.getSession();			
 		String user = ses.getAttribute("userName").toString();
 		us = udao.getUser(user);
-		
+		String redirect = "MyAccount.jsp";
 		
 		
 		switch(request.getParameter("action")) {
@@ -66,17 +72,17 @@ public class ProfileServlet extends HttpServlet {
 					
 					ses.removeAttribute("userName");
 					ses.setAttribute("userName", newUserName);
-					response.sendRedirect("MyAccount.jsp");
+					response.sendRedirect(redirect);
 					
 				}
 				else {
 					out.println("Usernames are not the same");
-					response.sendRedirect("MyAccount.jsp");
+					response.sendRedirect(redirect);
 				}
 			}
 			else {
 				out.println("One of the fields or both are empty");
-				response.sendRedirect("MyAccount.jsp");
+				response.sendRedirect(redirect);
 			}
 			break;
 			
@@ -100,22 +106,32 @@ public class ProfileServlet extends HttpServlet {
 					}
 					else {
 						out.println("passwords are not the same");
-						response.sendRedirect("MyAccount.jsp");
+						response.sendRedirect(redirect);
 					}
 				}
 				else {
 					out.println("One of the fields or both are empty");
-					response.sendRedirect("MyAccount.jsp");
+					response.sendRedirect(redirect);
 				}
 			}
 			else {
 				out.println("passwords are not similar");
-				response.sendRedirect("MyAccount.jsp");
+				response.sendRedirect(redirect);
 			}
 			break;
 			
+		case "delete":
+			udao.deleteUser(user);
+			ses.invalidate();
 			
+			break;
+			
+		case "signout":
+			ses.invalidate();
+			
+		
 		}
+		
 	}
 
 }
