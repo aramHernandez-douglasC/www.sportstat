@@ -286,23 +286,23 @@ public void updatePassword(String username, String password) {
 }
 
 
-	public void deleteInfo(User id) {
+public void deleteUser(String id) {
 
 		try {
 
 			connectDB();
 
 			// Delete query
-			String sql = "DELETE FROM Team WHERE id=?";
+			String sql = "DELETE FROM user WHERE _loginUser=?";
 
 			this.prepStatement = this.connect.prepareStatement(sql);
 
-			this.prepStatement.setInt(1, id.get_userID());
+			this.prepStatement.setString(1, id);
 
 			// Execute the query
-			this.prepStatement.executeUpdate();
+			this.prepStatement.execute();
 
-			System.out.println("Deleted Team: " + id.get_userID());
+			System.out.println("Deleted User: " + id);
 
 			disconnectDB();
 		} catch (SQLException m) {

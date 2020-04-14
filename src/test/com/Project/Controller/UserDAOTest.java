@@ -23,7 +23,7 @@ class UserDAOTest {
 		user = new UserDAO();
 	}
 
-	//@Test
+	@Test
 void testAddInfo() { 
 		@SuppressWarnings("deprecation")
 		Date dob = new Date(90, 03, 31);
@@ -42,15 +42,17 @@ void testAddInfo() {
 	@Test
 	void testUpdateUserName(){
 		user.updateUserName("Louis", "Dean");
-		Assert.assertNotNull(user.getUser("Dean"));
+		testUser = user.getUser("Dean");
+		Assert.assertNotNull(testUser);
 		
 	}
 	
-	/**@Test
+	@Test
 	void testDeleteInfo() { 
-		user.deleteInfo(testUser);
-		Assert.assertEquals(user.getUser("Dean"));
+		user.deleteUser("Dean");
 		
-	}**/
+		Assert.assertEquals(null, testUser);
+		
+	}
 
 }
