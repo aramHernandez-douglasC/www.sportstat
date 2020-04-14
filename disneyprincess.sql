@@ -8,7 +8,7 @@ CREATE TABLE User(
     _city VARCHAR(50),
     _province VARCHAR(50),
     _country VARCHAR(50),
-    _loginUser VARCHAR(50),
+    _loginUser VARCHAR(50) UNIQUE,
     _loginPassword VARCHAR(50),
     
     PRIMARY KEY (_loginId) 
